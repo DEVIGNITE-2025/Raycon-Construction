@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Projects — Raycon Construction</title>
+  <meta name="description" content="Browse Raycon Construction's portfolio of premium residential projects across Johannesburg's northern suburbs — new builds, renovations, estate developments and more.">
+
+  <meta property="og:title" content="Our Projects — Raycon Construction">
+  <meta property="og:description" content="A portfolio of premium residential construction projects in Johannesburg's northern suburbs.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='12' width='100' height='100' fill='%23B8860B'/><text x='50' y='68' font-size='55' font-family='Georgia' text-anchor='middle' fill='white'>R</text></svg>">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" role="banner">
+    <div class="container-wide navbar__inner">
+      <a href="index.html" class="logo" aria-label="Raycon Construction — Home">
+        <div class="logo__mark">R</div>
+        <div class="logo__text">Raycon<span>Construction</span></div>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn--primary btn--sm">Request a Quote</a>
+      </nav>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn--primary">Request a Quote</a>
+  </nav>
+  <div class="nav-overlay" aria-hidden="true"></div>
+
+  <main id="main-content">
+
+    <!-- ========== HERO ========== -->
+    <section class="hero hero--page">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <span class="hero__eyebrow">Our Portfolio</span>
+        <h1 class="hero__title">Projects That Speak for Themselves</h1>
+        <p class="hero__text">Browse a selection of residential projects delivered across Johannesburg's northern suburbs — from luxury new builds to complete estate developments.</p>
+      </div>
+    </section>
+
+    <!-- ========== PROJECTS GRID ========== -->
+    <section class="section" aria-labelledby="projects-grid-heading">
+      <div class="container">
+        <div class="section__header">
+          <h2 id="projects-grid-heading">All Projects</h2>
+          <p>Filter by category to find projects similar to yours.</p>
+        </div>
+
+        <!-- Filter buttons rendered by JS -->
+        <div class="filter-bar" role="group" aria-label="Filter projects by category"></div>
+
+        <!-- Project cards rendered by JS -->
+        <div class="grid grid--3" id="projects-grid" style="transition:opacity .35s ease, transform .35s ease"></div>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="cta-banner">
+      <div class="container">
+        <h2>Have a Project in Mind?</h2>
+        <p>Whether it's a new build, renovation or estate development — we'd love to hear about your plans.</p>
+        <div class="btn-group" style="justify-content:center">
+          <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote</a>
+          <a href="services.html" class="btn btn--ghost text-white btn--lg">View Our Services</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="logo" style="margin-bottom:var(--sp-4)">
+            <div class="logo__mark">R</div>
+            <div class="logo__text" style="color:var(--clr-offwhite)">Raycon<span>Construction</span></div>
+          </a>
+          <p class="footer__credibility">Building quality homes in Johannesburg's northern suburbs since 1982. Trusted by homeowners and developers for over four decades.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer__links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <div class="footer__links">
+            <a href="services.html">Upmarket Homes</a>
+            <a href="services.html">Affordable Homes</a>
+            <a href="services.html">Alterations & Additions</a>
+            <a href="services.html">Plans & Submissions</a>
+            <a href="services.html">Secure Estates</a>
+            <a href="services.html">Turn Key Projects</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span><a href="tel:0114654547">011 465 4547</a></span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span><a href="tel:0836011594">083 601 1594</a></span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span><a href="mailto:raycon@absamail.co.za">raycon@absamail.co.za</a></span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>15 De Mist, Lanzerac<br>Crestwood Drive, Lonehill<br>Gauteng</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <span>&copy; 2026 Raycon Construction. All rights reserved.</span>
+        <span>P.O. Box 210, Witkoppen 2016</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
