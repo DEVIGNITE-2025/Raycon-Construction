@@ -1,7 +1,7 @@
-# Robots.txt — Raycon Construction
-# https://www.rayconconstruction.co.za
+# Robots.txt — Raycon Developments
+# https://www.raycondevelopments.co.za
 
 User-agent: *
 Allow: /
 
-Sitemap: https://www.rayconconstruction.co.za/sitemap.xml
+Sitemap: https://www.raycondevelopments.co.za/sitemap.xml
