@@ -33,7 +33,7 @@ const SERVICES = [
     id: 'secure-estates',
     title: 'Secure Estate Developments',
     shortDesc: 'Complete residential estate development, from site planning to final handover, in secure gated communities.',
-    longDesc: 'We have a proven track record delivering exceptional estate developments. From Thornbush Estate (22 units) and Bramble Bush Estate (40 units) to Cowley Row (6 units) and The Wahlberg (23 homes), we handle every aspect including site infrastructure, individual home construction, landscaping, and common area development.',
+    longDesc: 'We have a proven track record delivering exceptional estate developments. From Thornbush Estate (22 units) and Bramble Bush Estate (40 units) to Cowley Row (6 units) and The Wahlberg (11 homes), we handle every aspect including site infrastructure, individual home construction, landscaping, and common area development.',
     icon: 'shield'
   },
   {
@@ -58,16 +58,16 @@ const PROJECTS = [
     title: 'The Wahlberg — Atholl',
     category: 'Estate Development',
     location: 'Atholl, Johannesburg',
-    year: '2022–Present',
+    year: '2022 - 2025',
     featured: true,
-    overview: '23 exclusive, free-standing cluster homes in the prestigious Atholl suburb. This ongoing development showcases Raycon\'s capability to deliver large-scale, high-end residential estates. Designed by Darryl Croome Architects.',
-    scope: 'Full estate development of 23 free-standing cluster homes, from site infrastructure through to individual home construction and finishes.',
+    overview: '11 exclusive, freestanding homes in the prestigious suburb of Atholl. This showcases Raycon\'s capability to build high-end residential estates. Designed by Darryl Croome Architects.',
+    scope: '11 homes. Started July 2022 - completed Phase 1 in 2025. Up to 6 houses under construction simultaneously.',
     highlights: [
-      '23 exclusive free-standing cluster homes',
+      '11 exclusive freestanding homes',
       'Designed by Darryl Croome Architects',
       'Premium Atholl location',
-      'Started July 2022, ongoing',
-      'Up to 11 houses under construction simultaneously'
+      'Started July 2022 - completed Phase 1 in 2025',
+      'Up to 6 houses under construction simultaneously'
     ],
     images: 4
   },
@@ -259,7 +259,7 @@ const FAQS = [
   },
   {
     question: 'What areas do you operate in?',
-    answer: 'We primarily serve the northern suburbs of Johannesburg, including Dainfern, Dainfern Valley, Fourways Gardens, Broadacres, Waterfall Estate, Bryanston, and surrounding areas. We are also currently active in Atholl with The Wahlberg development. If your project falls outside these areas, please contact us — we\'re happy to discuss your requirements.'
+    answer: 'We primarily serve the northern suburbs of Johannesburg, including Dainfern, Dainfern Valley, Fourways Gardens, Broadacres, Waterfall Estate, Bryanston, Craighall, Blue Hills, and surrounding areas. If your project falls outside these areas, please contact us — we\'re happy to discuss your requirements.'
   },
   {
     question: 'Can I live in my home during a renovation?',
@@ -271,7 +271,7 @@ const FAQS = [
   },
   {
     question: 'How many projects can you manage at once?',
-    answer: 'Our project capacity is between 10 to 12 projects simultaneously, depending on the complexity of the work. Our experienced team structure — led by Stephen Rayner as Project Manager with dedicated Site Managers — allows us to maintain quality across all active builds.'
+    answer: 'Our project capacity is between 5 and 7 projects depending on the size and complexity of each build. This allows us to maintain quality and dedicated attention across all active projects.'
   },
   {
     question: 'How do I get started with a project?',
