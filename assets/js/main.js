@@ -1,6 +1,6 @@
 /* ============================================================
-   RAYCON CONSTRUCTION — Main JavaScript
-   Vanilla JS · No dependencies
+   RAYCON DEVVELOPMENTS  -  Main JavaScript
+   Vanilla JS - No dependencies
    ============================================================ */
 
 (function () {
@@ -24,7 +24,7 @@
   });
 
   /* ==========================================================
-     NAVBAR — scroll background & active link
+     NAVBAR  -  scroll background & active link
      ========================================================== */
   function initNavbar() {
     const navbar = $('.navbar');
@@ -47,7 +47,7 @@
   }
 
   /* ==========================================================
-     MOBILE NAV — drawer with focus trap + escape
+     MOBILE NAV  -  drawer with focus trap + escape
      ========================================================== */
   function initMobileNav() {
     const toggle = $('.nav-toggle');
@@ -199,6 +199,19 @@
      ========================================================== */
   function initAccordions() {
     $$('.accordion').forEach(accordion => {
+      if (accordion.dataset.bound === 'true') return;
+      accordion.dataset.bound = 'true';
+
+      // Normalize closed state so all panels start hidden.
+      $$('.accordion__trigger', accordion).forEach(t => {
+        t.setAttribute('aria-expanded', 'false');
+        const p = document.getElementById(t.getAttribute('aria-controls'));
+        if (p) {
+          p.style.display = 'none';
+          p.style.maxHeight = null;
+        }
+      });
+
       accordion.addEventListener('click', (e) => {
         const trigger = e.target.closest('.accordion__trigger');
         if (!trigger) return;
@@ -212,11 +225,15 @@
         $$('.accordion__trigger', accordion).forEach(t => {
           t.setAttribute('aria-expanded', 'false');
           const p = document.getElementById(t.getAttribute('aria-controls'));
-          if (p) p.style.maxHeight = null;
+          if (p) {
+            p.style.maxHeight = null;
+            p.style.display = 'none';
+          }
         });
 
         if (!isOpen) {
           trigger.setAttribute('aria-expanded', 'true');
+          panel.style.display = 'block';
           panel.style.maxHeight = panel.scrollHeight + 'px';
         }
       });
@@ -256,7 +273,7 @@
         grid.innerHTML = filtered.map(project => `
           <article class="card">
             <div class="card__img img-placeholder" aria-hidden="true">
-              <span>${project.category} — Photo</span>
+              <span>${project.category}  -  Photo</span>
             </div>
             <div class="card__body">
               <div class="card__meta">
@@ -264,7 +281,7 @@
                 <span class="chip">${project.location.split(',')[0]}</span>
               </div>
               <h3 class="card__title" style="margin-top:var(--sp-3)">${project.title}</h3>
-              <p class="card__text">${project.overview.substring(0, 140)}…</p>
+              <p class="card__text">${project.overview.substring(0, 140)}...</p>
               <a href="project.html?id=${project.id}" class="card__link">View project</a>
             </div>
           </article>
@@ -300,12 +317,12 @@
           <a href="projects.html" class="btn btn--primary">View All Projects</a>
         </div>`;
       // Update page title
-      document.title = 'Project Not Found — Raycon Construction';
+      document.title = 'Project Not Found  -  Raycon Devvelopments';
       return;
     }
 
     // Update page title & breadcrumb
-    document.title = `${project.title} — Raycon Construction`;
+    document.title = `${project.title}  -  Raycon Devvelopments`;
     const breadcrumbTitle = $('#breadcrumb-title');
     if (breadcrumbTitle) breadcrumbTitle.textContent = project.title;
 
@@ -313,7 +330,7 @@
     const heroTitle = $('#project-hero-title');
     const heroLocation = $('#project-hero-location');
     if (heroTitle) heroTitle.textContent = project.title;
-    if (heroLocation) heroLocation.textContent = `${project.location} · ${project.year}`;
+    if (heroLocation) heroLocation.textContent = `${project.location} - ${project.year}`;
 
     // Render detail
     container.innerHTML = `
@@ -334,7 +351,7 @@
 
       <div class="project-detail__gallery">
         ${Array.from({ length: project.images }, (_, i) => `
-          <div class="project-detail__gallery-img" role="img" aria-label="${project.title} — Image ${i + 1}">
+          <div class="project-detail__gallery-img" role="img" aria-label="${project.title}  -  Image ${i + 1}">
             Image ${i + 1} Placeholder
           </div>
         `).join('')}
@@ -349,14 +366,14 @@
       </ul>
 
       <div style="margin-top:var(--sp-8)">
-        <a href="projects.html" class="btn btn--secondary">← Back to Projects</a>
+        <a href="projects.html" class="btn btn--secondary"><- Back to Projects</a>
         <a href="contact.html" class="btn btn--primary" style="margin-left:var(--sp-3)">Discuss Your Project</a>
       </div>
     `;
   }
 
   /* ==========================================================
-     CONTACT FORM — validation + localStorage + toast
+     CONTACT FORM  -  validation + localStorage + toast
      ========================================================== */
   function initContactForm() {
     const form = $('#contact-form');
@@ -460,7 +477,7 @@
   }
 
   /* ==========================================================
-     RENDER HELPERS — used by pages that build from data.js
+     RENDER HELPERS  -  used by pages that build from data.js
      ========================================================== */
 
   // Render service cards (used on index.html)
@@ -490,7 +507,7 @@
     container.innerHTML = items.map(p => `
       <article class="card animate-on-scroll">
         <div class="card__img img-placeholder" aria-hidden="true">
-          <span>${p.category} — Photo</span>
+          <span>${p.category}  -  Photo</span>
         </div>
         <div class="card__body">
           <div class="card__meta">
@@ -498,7 +515,7 @@
             <span class="chip">${p.location.split(',')[0]}</span>
           </div>
           <h3 class="card__title" style="margin-top:var(--sp-3)">${p.title}</h3>
-          <p class="card__text">${p.overview.substring(0, 120)}…</p>
+          <p class="card__text">${p.overview.substring(0, 120)}...</p>
           <a href="project.html?id=${p.id}" class="card__link">View project</a>
         </div>
       </article>
@@ -558,7 +575,7 @@
           <a href="contact.html" class="btn btn--primary btn--sm" style="margin-top:var(--sp-5)">Enquire About This Service</a>
         </div>
         <div class="service-detail__img" role="img" aria-label="${s.title}">
-          ${s.title} — Photo
+          ${s.title}  -  Photo
         </div>
       </div>
     `).join('');
@@ -605,3 +622,4 @@
   }
 
 })();
+

@@ -1,6 +1,6 @@
-# Raycon Construction — Website
+# Raycon Devvelopments  -  Website
 
-Premium residential construction website for **Raycon Construction**, established in 1982. Built with vanilla HTML, CSS, and JavaScript — no frameworks or build tools required.
+Premium residential construction website for **Raycon Devvelopments**, established in 1982. Built with vanilla HTML, CSS, and JavaScript  -  no frameworks or build tools required.
 
 ---
 
@@ -8,22 +8,22 @@ Premium residential construction website for **Raycon Construction**, establishe
 
 ```
 raycon-construction/
-├── index.html              ← Home page
-├── services.html           ← Services overview & FAQ
-├── projects.html           ← Filterable project portfolio
-├── project.html            ← Single project detail (uses ?id= querystring)
-├── about.html              ← Company story, values, team
-├── contact.html            ← Contact form & details
-├── sitemap.xml             ← XML sitemap for search engines
-├── robots.txt              ← Robots directives
-├── README.md               ← This file
-└── assets/
-    ├── css/
-    │   └── styles.css      ← All styles (CSS variables, components, utilities)
-    ├── js/
-    │   ├── data.js         ← Services, projects, FAQs, testimonials, team data
-    │   └── main.js         ← All interactive functionality
-    └── img/                ← Image assets (currently using placeholders)
+â”œâ”€â”€ index.html              <- Home page
+â”œâ”€â”€ services.html           <- Services overview & FAQ
+â”œâ”€â”€ projects.html           <- Filterable project portfolio
+â”œâ”€â”€ project.html            <- Single project detail (uses ?id= querystring)
+â”œâ”€â”€ about.html              <- Company story, values, team
+â”œâ”€â”€ contact.html            <- Contact form & details
+â”œâ”€â”€ sitemap.xml             <- XML sitemap for search engines
+â”œâ”€â”€ robots.txt              <- Robots directives
+â”œâ”€â”€ README.md               <- This file
+â””â”€â”€ assets/
+    â”œâ”€â”€ css/
+    â”‚   â””â”€â”€ styles.css      <- All styles (CSS variables, components, utilities)
+    â”œâ”€â”€ js/
+    â”‚   â”œâ”€â”€ data.js         <- Services, projects, FAQs, testimonials, team data
+    â”‚   â””â”€â”€ main.js         <- All interactive functionality
+    â””â”€â”€ img/                <- Image assets (currently using placeholders)
 ```
 
 ---
@@ -61,11 +61,11 @@ Install the "Live Server" extension and click "Go Live" in the status bar.
 ### Services & Projects
 All data is stored in **`assets/js/data.js`**. Edit the arrays directly:
 
-- `SERVICES` — Service listings (id, title, descriptions, icon)
-- `PROJECTS` — Project portfolio (id, title, category, location, year, overview, scope, highlights, image count)
-- `FAQS` — Frequently asked questions
-- `TESTIMONIALS` — Client testimonials
-- `TEAM` — Team member profiles
+- `SERVICES`  -  Service listings (id, title, descriptions, icon)
+- `PROJECTS`  -  Project portfolio (id, title, category, location, year, overview, scope, highlights, image count)
+- `FAQS`  -  Frequently asked questions
+- `TESTIMONIALS`  -  Client testimonials
+- `TEAM`  -  Team member profiles
 
 ### Adding a New Project
 Add a new object to the `PROJECTS` array in `data.js`:
@@ -73,7 +73,7 @@ Add a new object to the `PROJECTS` array in `data.js`:
 ```javascript
 {
   id: 'your-project-slug',           // URL-friendly, unique
-  title: 'Project Title — Location',
+  title: 'Project Title  -  Location',
   category: 'New Build',              // Must match filter category
   location: 'Suburb, Johannesburg',
   year: '2025',
@@ -98,11 +98,11 @@ Project categories used for filtering:
 
 ## Features
 
-- **Responsive** — Mobile-first design, tested at 360px, 768px, and 1200px+
-- **Accessible** — Semantic HTML, ARIA attributes, keyboard navigation, focus states
-- **SEO-ready** — Meta tags, Open Graph, sitemap, robots.txt, semantic headings
-- **Performance** — Minimal JS, CSS variables, no external dependencies
-- **Interactive** — Mobile nav with focus trap, project filtering, FAQ accordion, form validation with localStorage
+- **Responsive**  -  Mobile-first design, tested at 360px, 768px, and 1200px+
+- **Accessible**  -  Semantic HTML, ARIA attributes, keyboard navigation, focus states
+- **SEO-ready**  -  Meta tags, Open Graph, sitemap, robots.txt, semantic headings
+- **Performance**  -  Minimal JS, CSS variables, no external dependencies
+- **Interactive**  -  Mobile nav with focus trap, project filtering, FAQ accordion, form validation with localStorage
 
 ---
 
@@ -128,3 +128,4 @@ Tested in modern browsers: Chrome, Firefox, Safari, Edge. Uses standard CSS and 
 ## Adding Real Images
 
 Replace placeholder `<div>` elements with `<img>` tags. Place images in `assets/img/` and update the rendering functions in `main.js` or the HTML directly. Use the `loading="lazy"` attribute for performance.
+
