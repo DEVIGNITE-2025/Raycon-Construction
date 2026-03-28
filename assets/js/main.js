@@ -1,6 +1,6 @@
 /* ============================================================
-   RAYCON DEVVELOPMENTS  -  Main JavaScript
-   Vanilla JS - No dependencies
+   Raycon Developments — Main JavaScript
+   Vanilla JS · No dependencies
    ============================================================ */
 
 (function () {
@@ -317,12 +317,12 @@
           <a href="projects.html" class="btn btn--primary">View All Projects</a>
         </div>`;
       // Update page title
-      document.title = 'Project Not Found  -  Raycon Devvelopments';
+      document.title = 'Project Not Found — Raycon Developments';
       return;
     }
 
     // Update page title & breadcrumb
-    document.title = `${project.title}  -  Raycon Devvelopments`;
+    document.title = `${project.title} — Raycon Developments`;
     const breadcrumbTitle = $('#breadcrumb-title');
     if (breadcrumbTitle) breadcrumbTitle.textContent = project.title;
 
@@ -502,7 +502,8 @@
   window.renderFeaturedProjects = function (containerId, limit) {
     const container = document.getElementById(containerId);
     if (!container || typeof PROJECTS === 'undefined') return;
-    const items = limit ? PROJECTS.slice(0, limit) : PROJECTS;
+    const featured = PROJECTS.filter(p => p.featured);
+    const items = (featured.length ? featured : PROJECTS).slice(0, limit || PROJECTS.length);
 
     container.innerHTML = items.map(p => `
       <article class="card animate-on-scroll">

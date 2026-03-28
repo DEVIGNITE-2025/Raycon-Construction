@@ -1,6 +1,6 @@
-# Raycon Devvelopments  -  Website
+# Raycon Developments — Website
 
-Premium residential construction website for **Raycon Devvelopments**, established in 1982. Built with vanilla HTML, CSS, and JavaScript  -  no frameworks or build tools required.
+Premium residential construction website for **Raycon Developments**, established in 1982. Built with vanilla HTML, CSS, and JavaScript — no frameworks or build tools required.
 
 ---
 
@@ -113,7 +113,7 @@ Project categories used for filtering:
 | Phone    | 011 465 4547                                        |
 | Mobile   | 083 601 1594                                        |
 | Fax      | 011 465 4566                                        |
-| Email    | raycon@absamail.co.za                               |
+| Email    | raycon.dev@outlook.com                               |
 | Address  | 15 De Mist, Lanzerac, Crestwood Drive, Lonehill, Gauteng |
 | Postal   | P.O. Box 210, Witkoppen 2016                        |
 
