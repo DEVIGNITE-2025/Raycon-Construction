@@ -13,35 +13,40 @@ const SERVICES = [
     title: 'Upmarket Homes',
     shortDesc: 'Bespoke luxury residences crafted to reflect your lifestyle, built to the highest standards in Johannesburg\'s most sought-after suburbs.',
     longDesc: 'From contemporary architectural statements to timeless classical designs, our upmarket homes are the result of decades of refined craftsmanship. Every detail — from foundation to finishes — is executed with meticulous care. We collaborate closely with leading architects to bring your vision to life in suburbs like Dainfern, Bryanston, Waterfall Estate, and Atholl.',
-    icon: 'home-luxury'
+    icon: 'home-luxury',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'alterations-additions',
     title: 'Alterations & Additions',
     shortDesc: 'Transform your existing property with expertly planned renovations, extensions, and modernisation projects.',
     longDesc: 'Whether you need an additional bedroom, a reimagined kitchen, or a complete ground-floor extension, our team manages every detail from structural assessment right through to finishing touches. We work sensitively within existing structures, minimising disruption while maximising the potential of your property. Raycon has been specialising in alterations and additions since 1982.',
-    icon: 'tools'
+    icon: 'tools',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'plans-submissions',
     title: 'Plans & Submissions',
     shortDesc: 'Professional architectural plans, council submissions, and all regulatory documentation handled end-to-end.',
     longDesc: 'Navigating municipal approvals and building regulations can be complex. We are here to advise and assist with all aspects of your build, from planning to occupation certificate.',
-    icon: 'blueprint'
+    icon: 'blueprint',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'secure-estates',
     title: 'Secure Estate Developments',
     shortDesc: 'Complete residential estate development, from site planning to final handover, in secure gated communities.',
     longDesc: 'We have a proven track record delivering exceptional estate developments. From Thornbush Estate (22 units) and Bramble Bush Estate (40 units) to Cowley Row (6 units) and The Wahlberg (11 homes), we handle every aspect including site infrastructure, individual home construction, landscaping, and common area development.',
-    icon: 'shield'
+    icon: 'shield',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'turnkey-projects',
     title: 'Turn Key Projects',
     shortDesc: 'A complete service from the drawing of your dream home to occupation certificate — we manage every step.',
     longDesc: 'Our turnkey service is the ultimate hands-free building experience. We manage the entire lifecycle of your project: from initial concept and architectural drawings, through council approvals, construction, and finishing, right up to your occupation certificate. You receive a ready-to-move-in home with a single point of contact throughout.',
-    icon: 'key'
+    icon: 'key',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'
   }
 ];
 
@@ -69,7 +74,8 @@ const PROJECTS = [
       'Started July 2022 - completed Phase 1 in 2025',
       'Up to 6 houses under construction simultaneously'
     ],
-    images: 4
+    images: 1,
+    imagePaths: ['Projects/Wahlberg.jpg']
   },
   {
     id: 'cowley-row',
@@ -90,7 +96,7 @@ const PROJECTS = [
   },
   {
     id: 'porchester-lane',
-    title: 'Porchester Lane',
+    title: 'Porchester Place',
     category: 'New Build',
     location: 'Johannesburg',
     year: '2022',
@@ -102,7 +108,8 @@ const PROJECTS = [
       'Completed November 2022',
       'Quality construction throughout'
     ],
-    images: 3
+    images: 1,
+    imagePaths: ['Projects/Porchester.jpg']
   },
   {
     id: '156-on-mount',
@@ -117,21 +124,6 @@ const PROJECTS = [
       '4 residential units',
       'Completed August 2023',
       'Premium finishes'
-    ],
-    images: 3
-  },
-  {
-    id: 'kingfisher-offices',
-    title: 'Kingfisher Offices',
-    category: 'Alterations & Additions',
-    location: 'Johannesburg',
-    year: 'Recent',
-    overview: 'Additions and alterations to an existing office/home, adding 140 m² of functional space. This project demonstrates Raycon\'s expertise in sensitive alterations that enhance existing properties.',
-    scope: 'Additions and alterations to existing office/home — 140 m² of new and refurbished space.',
-    highlights: [
-      '140 m² additions and alterations',
-      'Office/home conversion',
-      'Seamless integration with existing structure'
     ],
     images: 3
   },
@@ -168,6 +160,22 @@ const PROJECTS = [
     images: 4
   },
   {
+    id: 'blue-hills-equestrian-estate',
+    title: 'Blue Hills Equestrian Estate',
+    category: 'Estate Development',
+    location: 'Blue Hills, Johannesburg',
+    year: 'In Progress',
+    overview: 'A Raycon residential estate project in Blue Hills. Further project details are available on request.',
+    scope: 'Residential estate construction works within Blue Hills Equestrian Estate.',
+    highlights: [
+      'Blue Hills location',
+      'Residential estate project',
+      'Further details available on request'
+    ],
+    images: 3,
+    imagePaths: ['Projects/BlueHills.jpeg', 'Projects/BlueHills_2.jpeg', 'Projects/BlueHills_3.jpeg']
+  },
+  {
     id: 'waterfall-estate',
     title: 'Waterfall Estate',
     category: 'New Build',
@@ -180,7 +188,7 @@ const PROJECTS = [
       'Premium Waterfall Estate location',
       'Constructed to estate standards'
     ],
-    images: 4
+    images: 0
   },
   {
     id: 'fourways-gardens',

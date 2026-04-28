@@ -270,11 +270,11 @@
       grid.style.transform = 'translateY(12px)';
 
       setTimeout(() => {
-        grid.innerHTML = filtered.map(project => `
-          <article class="card">
-            <div class="card__img img-placeholder" aria-hidden="true">
-              <span>${project.category}  -  Photo</span>
-            </div>
+        grid.innerHTML = filtered.map(project => {
+          const hasImage = getProjectImagePaths(project).length > 0;
+          return `
+          <article class="card${hasImage ? '' : ' card--archive'}">
+            ${getProjectCardImage(project)}
             <div class="card__body">
               <div class="card__meta">
                 <span class="chip chip--accent">${project.category}</span>
@@ -285,7 +285,7 @@
               <a href="project.html?id=${project.id}" class="card__link">View project</a>
             </div>
           </article>
-        `).join('');
+        `;}).join('');
 
         // Trigger reflow
         void grid.offsetHeight;
@@ -350,11 +350,7 @@
       <p>${project.overview}</p>
 
       <div class="project-detail__gallery">
-        ${Array.from({ length: project.images }, (_, i) => `
-          <div class="project-detail__gallery-img" role="img" aria-label="${project.title}  -  Image ${i + 1}">
-            Image ${i + 1} Placeholder
-          </div>
-        `).join('')}
+        ${getProjectGalleryMarkup(project)}
       </div>
 
       <h3>Scope of Work</h3>
@@ -505,11 +501,11 @@
     const featured = PROJECTS.filter(p => p.featured);
     const items = (featured.length ? featured : PROJECTS).slice(0, limit || PROJECTS.length);
 
-    container.innerHTML = items.map(p => `
-      <article class="card animate-on-scroll">
-        <div class="card__img img-placeholder" aria-hidden="true">
-          <span>${p.category}  -  Photo</span>
-        </div>
+    container.innerHTML = items.map(p => {
+      const hasImage = getProjectImagePaths(p).length > 0;
+      return `
+      <article class="card animate-on-scroll${hasImage ? '' : ' card--archive'}">
+        ${getProjectCardImage(p)}
         <div class="card__body">
           <div class="card__meta">
             <span class="chip chip--accent">${p.category}</span>
@@ -520,7 +516,7 @@
           <a href="project.html?id=${p.id}" class="card__link">View project</a>
         </div>
       </article>
-    `).join('');
+    `;}).join('');
 
     initScrollAnimations();
   };
@@ -545,6 +541,60 @@
 
     initScrollAnimations();
   };
+
+  function getProjectCardImage(project) {
+    const imagePath = getProjectImagePaths(project)[0];
+
+    if (!imagePath) {
+      return getProjectArchiveVisual(project);
+    }
+
+    return `<img class="card__img" src="${imagePath}" alt="${project.title}">`;
+  }
+
+  function getProjectArchiveVisual(project) {
+    const initials = (project.title || '')
+      .replace(/[^A-Za-z\s]/g, '')
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map(w => w[0].toUpperCase())
+      .join('') || 'R';
+    const year = project.year || 'Archive';
+    const detail = (project.scope || project.overview || '').split('.')[0];
+    return `
+      <div class="card__archive" aria-hidden="true">
+        <div class="card__archive-grid"></div>
+        <div class="card__archive-tag">From the Archive</div>
+        <div class="card__archive-mark">${initials}</div>
+        <div class="card__archive-meta">
+          <span class="card__archive-year">${year}</span>
+          <span class="card__archive-detail">${detail}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function getProjectGalleryMarkup(project) {
+    const imagePaths = getProjectImagePaths(project);
+
+    if (!imagePaths.length) {
+      return `<div class="project-detail__archive">${getProjectArchiveVisual(project)}</div>`;
+    }
+
+    return imagePaths.map((imagePath, index) => `
+      <img
+        class="project-detail__gallery-img"
+        src="${imagePath}"
+        alt="${project.title} - Image ${index + 1}"
+        loading="lazy"
+      >
+    `).join('');
+  }
+
+  function getProjectImagePaths(project) {
+    return Array.isArray(project.imagePaths) ? project.imagePaths : [];
+  }
 
   // Render team cards
   window.renderTeam = function (containerId) {
@@ -575,9 +625,12 @@
           <p class="service-detail__text">${s.longDesc}</p>
           <a href="contact.html" class="btn btn--primary btn--sm" style="margin-top:var(--sp-5)">Enquire About This Service</a>
         </div>
-        <div class="service-detail__img" role="img" aria-label="${s.title}">
-          ${s.title}  -  Photo
-        </div>
+        <figure class="service-detail__img" aria-label="${s.title}">
+          ${s.image
+            ? `<img src="${s.image}" alt="${s.title}" loading="lazy" onerror="this.parentElement.classList.add('service-detail__img--fallback'); this.remove();">`
+            : ''}
+          <span class="service-detail__img-fallback">${s.title}</span>
+        </figure>
       </div>
     `).join('');
 

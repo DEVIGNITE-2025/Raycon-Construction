@@ -1,7 +1,90 @@
 # Robots.txt — Raycon Developments
 # https://www.raycondevelopments.co.za
 
+# ----------------------------------------------------------------
+# Default policy: allow all standard search engines
+# ----------------------------------------------------------------
 User-agent: *
 Allow: /
 
+# ----------------------------------------------------------------
+# AI / LLM crawlers — explicitly allowed for Answer Engine,
+# Generative Engine, and LLM Optimisation (AEO / GEO / LLMO).
+# Listing each user-agent ensures we appear in AI-generated
+# answers from ChatGPT, Claude, Perplexity, Google AI Overviews,
+# Gemini, Bing/Copilot, and Common Crawl-derived models.
+# ----------------------------------------------------------------
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google AI / Gemini training & Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft / Bing Copilot
+User-agent: Bingbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Common Crawl (used by many open-source LLMs)
+User-agent: CCBot
+Allow: /
+
+# Mistral / xAI / Cohere
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: xAI
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# Nothing sensitive to hide
+Disallow:
+
+# ----------------------------------------------------------------
+# Sitemap & LLM index
+# ----------------------------------------------------------------
 Sitemap: https://www.raycondevelopments.co.za/sitemap.xml

@@ -11,7 +11,42 @@
   <meta property="og:type" content="website">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='12' width='100' height='100' fill='%234B8979'/><text x='50' y='68' font-size='55' font-family='Georgia' text-anchor='middle' fill='white'>R</text></svg>">
+  <link rel="canonical" href="https://www.raycondevelopments.co.za/about.html">
   <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Structured Data: AboutPage + Founder + Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.raycondevelopments.co.za/"},
+          {"@type": "ListItem", "position": 2, "name": "About", "item": "https://www.raycondevelopments.co.za/about.html"}
+        ]
+      },
+      {
+        "@type": "AboutPage",
+        "@id": "https://www.raycondevelopments.co.za/about.html#aboutpage",
+        "url": "https://www.raycondevelopments.co.za/about.html",
+        "name": "About Raycon Developments",
+        "description": "Raycon Developments has been building premium residential homes in Johannesburg's northern suburbs since 1982. Over four decades of refined craftsmanship.",
+        "about": {"@id": "https://www.raycondevelopments.co.za/#organization"},
+        "mainEntity": {"@id": "https://www.raycondevelopments.co.za/#organization"},
+        "inLanguage": "en-ZA"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.raycondevelopments.co.za/#stephen-rayner",
+        "name": "Stephen Rayner",
+        "jobTitle": "Director & Project Manager",
+        "worksFor": {"@id": "https://www.raycondevelopments.co.za/#organization"},
+        "description": "Stephen leads Raycon Developments as Director and Project Manager, overseeing all projects from inception to completion."
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -50,138 +85,235 @@
   <main id="main-content">
 
     <!-- ========== HERO ========== -->
-    <section class="hero hero--page">
-      <div class="hero__bg" aria-hidden="true"></div>
+    <section class="hero hero--page about-hero">
+      <div class="hero__bg about-hero__bg" aria-hidden="true"></div>
       <div class="container hero__content">
-        <span class="hero__eyebrow">About Raycon</span>
+        <span class="hero__eyebrow">About Raycon · Est. 1982</span>
         <h1 class="hero__title">Four Decades of Building Excellence</h1>
-        <p class="hero__text">Since 1982, Raycon Developments has built a reputation for quality, reliability, and craftsmanship in Johannesburg's most sought-after residential suburbs.</p>
+        <p class="hero__text">A family-led construction company quietly shaping Johannesburg's most desirable suburbs — one carefully crafted home at a time.</p>
       </div>
     </section>
 
-    <!-- ========== OUR STORY ========== -->
-    <section class="section" aria-labelledby="story-heading">
+    <!-- ========== INTRO / STORY ========== -->
+    <section class="section about-intro" aria-labelledby="story-heading">
       <div class="container">
-        <div style="display:grid;grid-template-columns:1fr;gap:var(--sp-8);align-items:start" class="story-grid">
-          <div>
-            <div class="section__header" style="text-align:left;margin:0 0 var(--sp-6)">
-              <h2 id="story-heading">Our Story</h2>
-              <p>A timeline of milestones that have shaped Raycon Developments into the company it is today.</p>
-            </div>
-
-            <p>Raycon was established in 1982, specialising in alterations and additions in the domestic housing market. In 1988, Raycon Developments moved into the construction of quality homes and alterations in the northern suburbs of Johannesburg.</p>
-
-            <p>The majority of our contracts have been constructed in up-market suburbs such as Dainfern, Dainfern Valley, Fourways Gardens, Broadacres, Waterfall Estate and Bryanston. We pride ourselves in delivering excellent personalised customer service, good value for money and the construction of new homes and alterations within the prescribed time constraint.</p>
-
-            <p>Our project capacity is between 5 and 7 projects depending on the size and complexity of each build, ensuring every client receives the attention and dedication their project deserves.</p>
-
-            <div class="timeline" style="margin-top:var(--sp-7)">
-              <div class="timeline__item animate-on-scroll">
-                <div class="timeline__dot"></div>
-                <div class="timeline__year">1982</div>
-                <div class="timeline__title">Company Founded</div>
-                <div class="timeline__text">Raycon is established, specialising in alterations and additions in the domestic housing market.</div>
-              </div>
-              <div class="timeline__item animate-on-scroll">
-                <div class="timeline__dot"></div>
-                <div class="timeline__year">1988</div>
-                <div class="timeline__title">Quality Homes in Northern Suburbs</div>
-                <div class="timeline__text">Raycon Development moved into the construction of quality homes in the northern suburbs of Johannesburg, establishing itself in areas like Bryanston, Fourways, and Lonehill.</div>
-              </div>
-              <div class="timeline__item animate-on-scroll">
-                <div class="timeline__dot"></div>
-                <div class="timeline__year">2009</div>
-                <div class="timeline__title">Secure Estate Developments</div>
-                <div class="timeline__text">
-                  Since 2009 we have completed the following secure Estate Developments:
-                  <ul style="margin-top:var(--sp-3);padding-left:var(--sp-5);line-height:1.8">
-                    <li>Thorn Bush Estate - Lonehill. 22 Free Standing houses - Architect: Down To Earth Architects and Interiors.</li>
-                    <li>Bramble Bush Estate - Broadacres. 40 Free standing houses - Architect - Down To Earth Architects and Interiors.</li>
-                    <li>Cowley Row: 6 Free standing houses: Architect - Venui Architects.</li>
-                    <li>Porchester Place: 5 Free standing House: Architect - Plan Studio.</li>
-                    <li>Mount Street: 4 Free standing houses: Architect: Venui Architects.</li>
-                    <li>The Wahlberg: 11 Free standing houses: Architect - Darryl Croome Architects.</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="timeline__item animate-on-scroll">
-                <div class="timeline__dot"></div>
-                <div class="timeline__year">Present</div>
-                <div class="timeline__title">Continued Growth</div>
-                <div class="timeline__text">Today we continue to deliver premium residential projects across Dainfern, Dainfern Valley, Fourways Gardens, Broadacres, Waterfall Estate, Bryanston, Craighall, Blue Hills, and the wider northern suburbs. Our services span new builds, alterations, estate developments, and complete turnkey projects.</div>
-              </div>
+        <div class="about-intro__grid">
+          <div class="about-intro__copy">
+            <span class="about-eyebrow">Our Story</span>
+            <h2 id="story-heading" class="about-intro__title">Quietly building Johannesburg's finest homes since 1982.</h2>
+            <p>Raycon was established in 1982, specialising in alterations and additions in the domestic housing market. In 1988, we moved into the construction of quality homes and alterations in the northern suburbs of Johannesburg.</p>
+            <p>The majority of our contracts have been built in suburbs such as <strong>Dainfern, Dainfern Valley, Fourways Gardens, Broadacres, Waterfall Estate</strong> and <strong>Bryanston</strong>. We pride ourselves on delivering excellent personalised customer service, good value for money, and the construction of new homes within the prescribed time constraint.</p>
+            <p>Our project capacity is between 5 and 7 projects at a time — depending on size and complexity — ensuring every client receives the attention and dedication their build deserves.</p>
+            <div class="about-intro__signature">
+              <div class="about-intro__sig-name">Stephen Rayner</div>
+              <div class="about-intro__sig-role">Director &amp; Project Manager</div>
             </div>
           </div>
+
+          <aside class="about-feature-card" aria-label="Raycon at a glance">
+            <div class="about-feature-card__badge">Raycon at a glance</div>
+            <div class="about-feature-card__hero">
+              <span class="about-feature-card__big">40<sup>+</sup></span>
+              <span class="about-feature-card__big-label">Years of craftsmanship</span>
+            </div>
+            <ul class="about-feature-card__list">
+              <li><span>Established</span><strong>1982</strong></li>
+              <li><span>Concurrent projects</span><strong>5 – 7</strong></li>
+              <li><span>Clients by referral</span><strong>90%</strong></li>
+              <li><span>Team tenure</span><strong>15+ yrs avg.</strong></li>
+            </ul>
+          </aside>
         </div>
+      </div>
+    </section>
+
+    <!-- ========== STATS BAND ========== -->
+    <section class="about-stats-band" aria-label="Track record">
+      <div class="container about-stats-band__inner">
+        <div class="about-stat">
+          <div class="about-stat__num">100<span>+</span></div>
+          <div class="about-stat__label">Homes Delivered</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat__num">6</div>
+          <div class="about-stat__label">Secure Estates Built</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat__num">30<span>+</span></div>
+          <div class="about-stat__label">Years with Sub-Contractors</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat__num">90<span>%</span></div>
+          <div class="about-stat__label">Word-of-Mouth Clients</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TIMELINE ========== -->
+    <section class="section about-journey" aria-labelledby="journey-heading">
+      <div class="container">
+        <div class="section__header">
+          <span class="about-eyebrow">The Journey</span>
+          <h2 id="journey-heading">Milestones that shaped Raycon</h2>
+          <p>From a small alterations specialist to one of the northern suburbs' most trusted residential builders.</p>
+        </div>
+
+        <ol class="about-timeline">
+          <li class="about-timeline__item animate-on-scroll">
+            <div class="about-timeline__year">1982</div>
+            <div class="about-timeline__card">
+              <h3>Company Founded</h3>
+              <p>Raycon is established, specialising in alterations and additions in the domestic housing market.</p>
+            </div>
+          </li>
+          <li class="about-timeline__item animate-on-scroll">
+            <div class="about-timeline__year">1988</div>
+            <div class="about-timeline__card">
+              <h3>Quality Homes in the Northern Suburbs</h3>
+              <p>Raycon Developments moves into the construction of quality homes in Johannesburg's northern suburbs — establishing a presence in Bryanston, Fourways and Lonehill.</p>
+            </div>
+          </li>
+          <li class="about-timeline__item animate-on-scroll">
+            <div class="about-timeline__year">2009</div>
+            <div class="about-timeline__card">
+              <h3>Secure Estate Developments</h3>
+              <p>The start of an era of secure estate work. Since 2009 we've completed:</p>
+              <ul class="about-timeline__estates">
+                <li><strong>Thorn Bush Estate</strong> — Lonehill · 22 homes <span>Down To Earth Architects &amp; Interiors</span></li>
+                <li><strong>Bramble Bush Estate</strong> — Broadacres · 40 homes <span>Down To Earth Architects &amp; Interiors</span></li>
+                <li><strong>Cowley Row</strong> · 6 homes <span>Venui Architects</span></li>
+                <li><strong>Porchester Place</strong> · 5 homes <span>Plan Studio</span></li>
+                <li><strong>Mount Street</strong> · 4 homes <span>Venui Architects</span></li>
+                <li><strong>The Wahlberg</strong> · 11 homes <span>Darryl Croome Architects</span></li>
+              </ul>
+            </div>
+          </li>
+          <li class="about-timeline__item animate-on-scroll">
+            <div class="about-timeline__year">Today</div>
+            <div class="about-timeline__card">
+              <h3>Continued Growth</h3>
+              <p>We continue to deliver premium residential projects across Dainfern, Waterfall Estate, Bryanston, Craighall, Blue Hills and the wider northern suburbs — spanning new builds, alterations, estate developments and complete turnkey projects.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
     <!-- ========== VALUES ========== -->
-    <section class="section section--alt" aria-labelledby="values-heading">
+    <section class="section section--alt about-values" aria-labelledby="values-heading">
       <div class="container">
         <div class="section__header">
-          <h2 id="values-heading">What We Stand For</h2>
-          <p>The principles that guide every project we undertake.</p>
+          <span class="about-eyebrow">What We Stand For</span>
+          <h2 id="values-heading">Principles built into every project</h2>
+          <p>Four commitments that define how we work — and why our clients keep coming back.</p>
         </div>
-        <div class="grid grid--2">
-          <div class="value-card animate-on-scroll">
-            <h3 class="value-card__title">Personalised Customer Service</h3>
-            <p class="value-card__text">We pride ourselves on delivering excellent personalised customer service. Each project gets the dedicated attention it deserves, with direct communication through Stephen Rayner as Project Manager overseeing all work.</p>
+        <div class="about-values__grid">
+          <article class="about-value animate-on-scroll">
+            <div class="about-value__num">01</div>
+            <h3 class="about-value__title">Personalised Customer Service</h3>
+            <p>Every project is overseen directly by Stephen Rayner as Project Manager, ensuring open communication and dedicated attention from concept to handover.</p>
+          </article>
+          <article class="about-value animate-on-scroll">
+            <div class="about-value__num">02</div>
+            <h3 class="about-value__title">Good Value for Money</h3>
+            <p>Long-standing relationships with trusted sub-contractors — built over 30+ years — let us deliver competitive pricing without compromising on quality.</p>
+          </article>
+          <article class="about-value animate-on-scroll">
+            <div class="about-value__num">03</div>
+            <h3 class="about-value__title">On-Time Delivery</h3>
+            <p>Detailed project planning and experienced site management mean we consistently deliver new homes and alterations within the prescribed time constraint.</p>
+          </article>
+          <article class="about-value animate-on-scroll">
+            <div class="about-value__num">04</div>
+            <h3 class="about-value__title">Experienced Teams</h3>
+            <p>Most of our employees have been with us for 15+ years. First-rate working relationships with engineers, electricians, plumbers, brick layers, plasterers and tilers underpin every build.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== LEADERSHIP ========== -->
+    <section class="section about-leader" aria-labelledby="leader-heading">
+      <div class="container">
+        <div class="section__header">
+          <span class="about-eyebrow">Leadership</span>
+          <h2 id="leader-heading">Led personally — every project, every day</h2>
+        </div>
+        <article class="about-leader__card">
+          <div class="about-leader__avatar" aria-hidden="true">SR</div>
+          <div class="about-leader__body">
+            <h3 class="about-leader__name">Stephen Rayner</h3>
+            <div class="about-leader__role">Director &amp; Project Manager</div>
+            <p>Stephen leads Raycon Developments as Director and Project Manager, overseeing every project from inception to completion. His hands-on approach and decades of experience in residential construction ensure that every Raycon home meets the company's exacting standards.</p>
+            <div class="about-leader__contact">
+              <a href="tel:0836011594" class="btn btn--ghost btn--sm">083 601 1594</a>
+              <a href="mailto:raycon.dev@outlook.com" class="btn btn--ghost btn--sm">raycon.dev@outlook.com</a>
+            </div>
           </div>
-          <div class="value-card animate-on-scroll">
-            <h3 class="value-card__title">Good Value for Money</h3>
-            <p class="value-card__text">We deliver good value for money on every project. Our long-standing relationships with trusted sub-contractors — built over 30 years — allow us to provide competitive pricing without compromising on quality.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== STRUCTURE / TRADES ========== -->
+    <section class="section section--alt about-structure" aria-labelledby="structure-heading">
+      <div class="container">
+        <div class="section__header">
+          <span class="about-eyebrow">Company Structure</span>
+          <h2 id="structure-heading">An experienced team across every trade</h2>
+          <p>Site Managers run the teams on the ground, with all work overseen by the Project Manager.</p>
+        </div>
+
+        <div class="about-pillars">
+          <div class="about-pillar animate-on-scroll">
+            <div class="about-pillar__head">
+              <span class="about-pillar__tag">Pillar 01</span>
+              <h3>Project Management</h3>
+            </div>
+            <ul class="about-pillar__list">
+              <li><strong>Stephen Rayner</strong><span>Director &amp; Project Manager</span></li>
+              <li><strong>Site Managers</strong><span>On-site team leadership</span></li>
+              <li><strong>Administration</strong><span>Project coordination</span></li>
+            </ul>
           </div>
-          <div class="value-card animate-on-scroll">
-            <h3 class="value-card__title">On-Time Delivery</h3>
-            <p class="value-card__text">We are committed to the construction of new homes and alterations within the prescribed time constraint. Our detailed project planning and experienced site management mean we consistently deliver on schedule.</p>
+
+          <div class="about-pillar animate-on-scroll">
+            <div class="about-pillar__head">
+              <span class="about-pillar__tag">Pillar 02</span>
+              <h3>In-House Trades</h3>
+            </div>
+            <ul class="about-pillar__list">
+              <li><strong>Builders &amp; Carpenters</strong><span>Core construction</span></li>
+              <li><strong>Plasterers &amp; Tilers</strong><span>Finishing trades</span></li>
+              <li><strong>Painters</strong><span>Final finishes</span></li>
+            </ul>
           </div>
-          <div class="value-card animate-on-scroll">
-            <h3 class="value-card__title">Experienced Teams</h3>
-            <p class="value-card__text">Most of our employees have worked with us for over 15 years. We have first-rate working relationships with our sub-contractors and have built solid associations with Engineers, Electricians, Plumbers and our Brick Laying, Plastering and Tiling teams over the past 30 years.</p>
+
+          <div class="about-pillar animate-on-scroll">
+            <div class="about-pillar__head">
+              <span class="about-pillar__tag">Pillar 03</span>
+              <h3>Trusted Sub-Contractors</h3>
+            </div>
+            <ul class="about-pillar__list">
+              <li><strong>Engineers</strong><span>Structural &amp; civil</span></li>
+              <li><strong>Electricians</strong><span>Compliant electrical works</span></li>
+              <li><strong>Plumbers</strong><span>Wet services &amp; reticulation</span></li>
+            </ul>
+            <p class="about-pillar__note">Long-standing partners — most over 30 years.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== TEAM & COMPANY STRUCTURE ========== -->
-    <section class="section" aria-labelledby="team-heading">
-      <div class="container">
-        <div class="section__header">
-          <h2 id="team-heading">Company Structure</h2>
-          <p>Led by Stephen Rayner, our experienced team delivers quality on every project.</p>
-        </div>
-        <div class="grid grid--4" id="team-grid"></div>
-        <div style="max-width:760px;margin:var(--sp-7) auto 0;">
-          <h3 class="mb-4">Our Team</h3>
-          <p>The teams are run by Site Managers, with all work overseen by the Project Manager. Our company structure includes:</p>
-          <div class="grid grid--3" style="margin-top:var(--sp-5);gap:var(--sp-3)">
-            <div class="value-card"><strong>Stephen Rayner</strong><br>Director & Project Manager</div>
-            <div class="value-card"><strong>Site Managers</strong><br>On-site team leadership</div>
-            <div class="value-card"><strong>Administration</strong><br>Project coordination</div>
-            <div class="value-card"><strong>Builders & Carpenters</strong><br>Core construction</div>
-            <div class="value-card"><strong>Plasterers & Tilers</strong><br>Finishing trades</div>
-            <div class="value-card"><strong>Painters</strong><br>Final finishes</div>
-          </div>
-          <h3 class="mb-4" style="margin-top:var(--sp-6)">Sub-Contractors</h3>
-          <p>We have first-rate working relationships with our sub-contractors, having built solid associations over the past 30 years with:</p>
-          <div class="grid grid--3" style="margin-top:var(--sp-4);gap:var(--sp-3)">
-            <div class="value-card"><strong>Engineers</strong></div>
-            <div class="value-card"><strong>Electricians</strong></div>
-            <div class="value-card"><strong>Plumbers</strong></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== COMPLIANCE ========== -->
-    <section class="section section--alt" aria-labelledby="safety-heading">
-      <div class="container">
-        <div style="max-width:760px;margin:0 auto">
-          <h2 id="safety-heading" class="mb-6">References & Compliance</h2>
-          <p>Raycon has successfully completed many Secure Estates, Standalone new builds and alterations over the years.</p>
-          <p>Many of our Clients have had more than one new home or alterations constructed by Raycon.</p>
-          <p>90% of our clients are referred to us by word of mouth, a happy client is the best form of advertising.</p>
+    <!-- ========== REFERRALS PULL-QUOTE ========== -->
+    <section class="about-referral" aria-labelledby="referral-heading">
+      <div class="container about-referral__inner">
+        <div class="about-referral__mark" aria-hidden="true">&ldquo;</div>
+        <h2 id="referral-heading" class="about-referral__quote">
+          90% of our clients are referred to us by word of mouth.
+          <span>A happy client is the best form of advertising.</span>
+        </h2>
+        <div class="about-referral__meta">
+          Many of our clients have built more than one home — or alteration — with Raycon.
         </div>
       </div>
     </section>
@@ -189,8 +321,8 @@
     <!-- ========== CTA ========== -->
     <section class="cta-banner">
       <div class="container">
-        <h2>Let's Build Something Exceptional</h2>
-        <p>Your home is our craft. Contact us to discuss how Raycon Developments can bring your vision to life.</p>
+        <h2>Let's build something exceptional.</h2>
+        <p>Your home is our craft. Get in touch to discuss how Raycon Developments can bring your vision to life.</p>
         <div class="btn-group" style="justify-content:center">
           <a href="contact.html" class="btn btn--primary btn--lg">Get in Touch</a>
           <a href="projects.html" class="btn btn--ghost text-white btn--lg">View Our Projects</a>
@@ -264,10 +396,6 @@
 
   <script src="assets/js/data.js"></script>
   <script src="assets/js/main.js"></script>
-  <script>
-    renderTeam('team-grid');
-  </script>
 
 </body>
 </html>
-
