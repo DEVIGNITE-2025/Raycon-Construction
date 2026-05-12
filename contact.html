@@ -163,7 +163,7 @@
               </div>
               <div>
                 <div class="contact-info__label">Company Registration</div>
-                <div class="contact-info__value">Raycon Developments (Pty) Ltd<br>Reg No: 2003/002211/07</div>
+                <div class="contact-info__value">Raycon Developments (Pty) Ltd</div>
               </div>
             </div>
 
@@ -250,7 +250,7 @@
             <img src="assets/img/Raycon-logo.png" alt="Raycon Developments" class="logo__image">
           </a>
           <p class="footer__credibility">Building quality homes in Johannesburg's northern suburbs since 1982. Trusted by homeowners and developers for over four decades.</p>
-          <p class="footer__credibility" style="font-size:.75rem;margin-top:var(--sp-2)">Raycon Developments (Pty) Ltd · Reg No: 2003/002211/07</p>
+          <p class="footer__credibility" style="font-size:.75rem;margin-top:var(--sp-2)">Raycon Developments (Pty) Ltd · <a href="mailto:raycon@absamail.co.za" style="color:inherit">raycon@absamail.co.za</a></p>
         </div>
         <div>
           <h4>Quick Links</h4>
@@ -304,6 +304,12 @@
   </button>
 
   <script src="assets/js/data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // Replace YOUR_PUBLIC_KEY with the Public Key from your EmailJS dashboard
+    // (Account → API Keys → Public Key)
+    emailjs.init({ publicKey: '9cvP5Kb4utHZF9F5f' });
+  </script>
   <script src="assets/js/main.js"></script>
 
 </body>

@@ -293,11 +293,21 @@
 
             <div class="contact-info__item">
               <div class="contact-info__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="contact-info__label">Mobile (Stephen Rayner)</div>
+                <div class="contact-info__value"><a href="tel:0836011594">083 601 1594</a></div>
+              </div>
+            </div>
+
+            <div class="contact-info__item">
+              <div class="contact-info__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
               <div>
                 <div class="contact-info__label">Email</div>
-                <div class="contact-info__value"><a href="mailto:raycon.dev@outlook.com">raycon.dev@outlook.com</a></div>
+                <div class="contact-info__value"><a href="mailto:raycon@absamail.co.za">raycon@absamail.co.za</a></div>
               </div>
             </div>
 
@@ -316,21 +326,40 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="home-name">Name <span class="required">*</span></label>
-                <input type="text" id="home-name" name="name" class="form-input" required autocomplete="name">
+                <input type="text" id="home-name" name="name" class="form-input" required autocomplete="name" placeholder="Your full name">
                 <span class="form-error" aria-live="polite"></span>
               </div>
               <div class="form-group">
                 <label for="home-email">Email <span class="required">*</span></label>
-                <input type="email" id="home-email" name="email" class="form-input" required autocomplete="email">
+                <input type="email" id="home-email" name="email" class="form-input" required autocomplete="email" placeholder="your@email.co.za">
                 <span class="form-error" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="home-phone">Phone</label>
+                <input type="tel" id="home-phone" name="phone" class="form-input" autocomplete="tel" placeholder="e.g. 083 000 0000">
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="home-type">Project Type</label>
+                <select id="home-type" name="projectType" class="form-select">
+                  <option value="">Select a project type</option>
+                  <option value="New Build">New Build</option>
+                  <option value="Alterations &amp; Additions">Alterations &amp; Additions</option>
+                  <option value="Secure Estate Development">Secure Estate Development</option>
+                  <option value="Plans, Drawings &amp; Submissions">Plans, Drawings &amp; Submissions</option>
+                  <option value="Turn Key Project">Turn Key Project</option>
+                  <option value="Other / General Enquiry">Other / General Enquiry</option>
+                </select>
               </div>
             </div>
             <div class="form-group">
               <label for="home-message">Message <span class="required">*</span></label>
-              <textarea id="home-message" name="message" class="form-textarea" rows="4" required></textarea>
+              <textarea id="home-message" name="message" class="form-textarea" rows="4" required placeholder="Tell us about your project or enquiry..."></textarea>
               <span class="form-error" aria-live="polite"></span>
             </div>
-            <button type="submit" class="btn btn--primary">Send Message</button>
+            <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
           </form>
         </div>
       </div>
@@ -347,7 +376,7 @@
             <img src="assets/img/Raycon-logo.png" alt="Raycon Developments" class="logo__image">
           </a>
           <p class="footer__credibility">Building quality homes in Johannesburg's northern suburbs since 1982. Trusted by homeowners and developers for over four decades.</p>
-          <p class="footer__credibility" style="font-size:.75rem;margin-top:var(--sp-2)">Raycon Developments (Pty) Ltd · Reg No: 2003/002211/07</p>
+          <p class="footer__credibility" style="font-size:.75rem;margin-top:var(--sp-2)">Raycon Developments (Pty) Ltd · <a href="mailto:raycon@absamail.co.za" style="color:inherit">raycon@absamail.co.za</a></p>
         </div>
         <div>
           <h4>Quick Links</h4>
@@ -381,7 +410,7 @@
           </div>
           <div class="footer__contact-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span><a href="mailto:raycon.dev@outlook.com">raycon.dev@outlook.com</a></span>
+            <span><a href="mailto:raycon@absamail.co.za">raycon@absamail.co.za</a></span>
           </div>
           <div class="footer__contact-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -403,16 +432,20 @@
 
   <!-- Scripts -->
   <script src="assets/js/data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init({ publicKey: 'YOUR_PUBLIC_KEY' });
+  </script>
   <script src="assets/js/main.js"></script>
   <script>
     // Render dynamic sections
     renderServiceCards('services-preview', 5);
     renderFeaturedProjects('featured-projects', 6);
 
-    // Home page mini contact form
+    // Home page mini contact form — EmailJS
     const homeForm = document.getElementById('contact-form-home');
     if (homeForm) {
-      homeForm.addEventListener('submit', function(e) {
+      homeForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         const fields = homeForm.querySelectorAll('[required]');
         let valid = true;
@@ -428,21 +461,44 @@
           }
         });
         if (!valid) return;
-        const data = Object.fromEntries(new FormData(homeForm));
-        data.submittedAt = new Date().toISOString();
-        data.source = 'home-page';
-        const msgs = JSON.parse(localStorage.getItem('raycon_messages') || '[]');
-        msgs.push(data);
-        localStorage.setItem('raycon_messages', JSON.stringify(msgs));
-        homeForm.reset();
-        // Toast
-        const toast = document.createElement('div');
-        toast.className = 'toast';
-        toast.setAttribute('role', 'status');
-        toast.textContent = 'Thank you! We\'ll be in touch shortly.';
-        document.body.appendChild(toast);
-        requestAnimationFrame(() => toast.classList.add('show'));
-        setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 400); }, 4000);
+
+        const btn = homeForm.querySelector('[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Sending\u2026';
+
+        const templateParams = {
+          name:        homeForm.querySelector('[name="name"]').value.trim(),
+          email:       homeForm.querySelector('[name="email"]').value.trim(),
+          phone:       'Not provided',
+          projectType: 'Not specified',
+          suburb:      'Not provided',
+          message:     homeForm.querySelector('[name="message"]').value.trim(),
+          submittedAt: new Date().toLocaleString('en-ZA', { timeZone: 'Africa/Johannesburg' })
+        };
+
+        try {
+          await emailjs.send('service_tsh5t4r', 'template_ts3n95a', templateParams);
+          homeForm.reset();
+          const toast = document.createElement('div');
+          toast.className = 'toast';
+          toast.setAttribute('role', 'status');
+          toast.textContent = 'Thank you! We\u2019ll be in touch shortly.';
+          document.body.appendChild(toast);
+          requestAnimationFrame(() => toast.classList.add('show'));
+          setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 400); }, 4000);
+        } catch (err) {
+          console.error('EmailJS error:', err);
+          const toast = document.createElement('div');
+          toast.className = 'toast';
+          toast.setAttribute('role', 'status');
+          toast.textContent = 'Something went wrong. Please call us on 011\u00a0465\u00a04547.';
+          document.body.appendChild(toast);
+          requestAnimationFrame(() => toast.classList.add('show'));
+          setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 400); }, 6000);
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Send Message';
+        }
       });
     }
   </script>

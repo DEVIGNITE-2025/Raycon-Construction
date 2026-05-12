@@ -437,25 +437,36 @@
     const form = $('#contact-form');
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!validateForm(form)) return;
 
-      // Gather data
-      const data = Object.fromEntries(new FormData(form));
-      data.submittedAt = new Date().toISOString();
+      const btn = form.querySelector('[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending\u2026';
 
-      // Save to localStorage
-      const messages = JSON.parse(localStorage.getItem('raycon_messages') || '[]');
-      messages.push(data);
-      localStorage.setItem('raycon_messages', JSON.stringify(messages));
+      const templateParams = {
+        name:        form.querySelector('[name="name"]').value.trim(),
+        email:       form.querySelector('[name="email"]').value.trim(),
+        phone:       form.querySelector('[name="phone"]').value.trim() || 'Not provided',
+        projectType: form.querySelector('[name="projectType"]').value || 'Not specified',
+        suburb:      form.querySelector('[name="suburb"]').value.trim() || 'Not provided',
+        message:     form.querySelector('[name="message"]').value.trim(),
+        submittedAt: new Date().toLocaleString('en-ZA', { timeZone: 'Africa/Johannesburg' })
+      };
 
-      // Reset form
-      form.reset();
-      clearErrors(form);
-
-      // Show toast
-      showToast('Thank you! Your message has been received. We\'ll be in touch shortly.');
+      try {
+        await emailjs.send('service_tsh5t4r', 'template_ts3n95a', templateParams);
+        form.reset();
+        clearErrors(form);
+        showToast('Thank you! Your message has been sent. We\u2019ll be in touch shortly.');
+      } catch (err) {
+        console.error('EmailJS error:', err);
+        showToast('Something went wrong. Please try again or call us on 011\u00a0465\u00a04547.', 7000);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+      }
     });
 
     // Live validation on blur
@@ -724,9 +735,7 @@
           <p class="service-detail__text">${s.longDesc}</p>
           <a href="contact.html" class="btn btn--primary btn--sm" style="margin-top:var(--sp-5)">Enquire About This Service</a>
         </div>
-        <div class="service-detail__img" role="img" aria-label="${s.title}">
-          ${s.title}  -  Photo
-        </div>
+        ${s.imagePath ? `<img class="service-detail__img" src="${s.imagePath}" alt="${s.title}" loading="lazy">` : `<div class="service-detail__img" role="img" aria-label="${s.title}">${s.title} - Photo</div>`}
       </div>
     `).join('');
 

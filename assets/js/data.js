@@ -13,35 +13,40 @@ const SERVICES = [
     title: 'Upmarket Homes',
     shortDesc: 'Bespoke luxury residences crafted to reflect your lifestyle, built to the highest standards in Johannesburg\'s most sought-after suburbs.',
     longDesc: 'From contemporary architectural statements to timeless classical designs, our upmarket homes are the result of decades of refined craftsmanship. Every detail — from foundation to finishes — is executed with meticulous care. We collaborate closely with leading architects to bring your vision to life in suburbs like Dainfern, Bryanston, Waterfall Estate, and Atholl.',
-    icon: 'home-luxury'
+    icon: 'home-luxury',
+    imagePath: 'assets/img/service-upmarket-homes.jpg'
   },
   {
     id: 'alterations-additions',
     title: 'Alterations & Additions',
     shortDesc: 'Transform your existing property with expertly planned renovations, extensions, and modernisation projects.',
     longDesc: 'Whether you need an additional bedroom, a reimagined kitchen, or a complete ground-floor extension, our team manages every detail from structural assessment right through to finishing touches. We work sensitively within existing structures, minimising disruption while maximising the potential of your property. Raycon has been specialising in alterations and additions since 1982.',
-    icon: 'tools'
+    icon: 'tools',
+    imagePath: 'assets/img/service-alterations.jpg'
   },
   {
     id: 'plans-submissions',
     title: 'Plans & Submissions',
     shortDesc: 'Professional architectural plans, council submissions, and all regulatory documentation handled end-to-end.',
     longDesc: 'Navigating municipal approvals and building regulations can be complex. We are here to advise and assist with all aspects of your build, from planning to occupation certificate.',
-    icon: 'blueprint'
+    icon: 'blueprint',
+    imagePath: 'assets/img/service-plans.jpg'
   },
   {
     id: 'secure-estates',
     title: 'Secure Estate Developments',
     shortDesc: 'Complete residential estate development, from site planning to final handover, in secure gated communities.',
     longDesc: 'We have a proven track record delivering exceptional estate developments. From Thornbush Estate (22 units) and Bramble Bush Estate (40 units) to Cowley Row (6 units) and The Wahlberg (11 homes), we handle every aspect including site infrastructure, individual home construction, landscaping, and common area development.',
-    icon: 'shield'
+    icon: 'shield',
+    imagePath: 'assets/img/service-estate.jpg'
   },
   {
     id: 'turnkey-projects',
     title: 'Turn Key Projects',
     shortDesc: 'A complete service from the drawing of your dream home to occupation certificate — we manage every step.',
     longDesc: 'Our turnkey service is the ultimate hands-free building experience. We manage the entire lifecycle of your project: from initial concept and architectural drawings, through council approvals, construction, and finishing, right up to your occupation certificate. You receive a ready-to-move-in home with a single point of contact throughout.',
-    icon: 'key'
+    icon: 'key',
+    imagePath: 'assets/img/service-turnkey.jpg'
   }
 ];
 
