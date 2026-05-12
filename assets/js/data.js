@@ -13,40 +13,35 @@ const SERVICES = [
     title: 'Upmarket Homes',
     shortDesc: 'Bespoke luxury residences crafted to reflect your lifestyle, built to the highest standards in Johannesburg\'s most sought-after suburbs.',
     longDesc: 'From contemporary architectural statements to timeless classical designs, our upmarket homes are the result of decades of refined craftsmanship. Every detail — from foundation to finishes — is executed with meticulous care. We collaborate closely with leading architects to bring your vision to life in suburbs like Dainfern, Bryanston, Waterfall Estate, and Atholl.',
-    icon: 'home-luxury',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+    icon: 'home-luxury'
   },
   {
     id: 'alterations-additions',
     title: 'Alterations & Additions',
     shortDesc: 'Transform your existing property with expertly planned renovations, extensions, and modernisation projects.',
     longDesc: 'Whether you need an additional bedroom, a reimagined kitchen, or a complete ground-floor extension, our team manages every detail from structural assessment right through to finishing touches. We work sensitively within existing structures, minimising disruption while maximising the potential of your property. Raycon has been specialising in alterations and additions since 1982.',
-    icon: 'tools',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80'
+    icon: 'tools'
   },
   {
     id: 'plans-submissions',
     title: 'Plans & Submissions',
     shortDesc: 'Professional architectural plans, council submissions, and all regulatory documentation handled end-to-end.',
     longDesc: 'Navigating municipal approvals and building regulations can be complex. We are here to advise and assist with all aspects of your build, from planning to occupation certificate.',
-    icon: 'blueprint',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80'
+    icon: 'blueprint'
   },
   {
     id: 'secure-estates',
     title: 'Secure Estate Developments',
     shortDesc: 'Complete residential estate development, from site planning to final handover, in secure gated communities.',
     longDesc: 'We have a proven track record delivering exceptional estate developments. From Thornbush Estate (22 units) and Bramble Bush Estate (40 units) to Cowley Row (6 units) and The Wahlberg (11 homes), we handle every aspect including site infrastructure, individual home construction, landscaping, and common area development.',
-    icon: 'shield',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80'
+    icon: 'shield'
   },
   {
     id: 'turnkey-projects',
     title: 'Turn Key Projects',
     shortDesc: 'A complete service from the drawing of your dream home to occupation certificate — we manage every step.',
     longDesc: 'Our turnkey service is the ultimate hands-free building experience. We manage the entire lifecycle of your project: from initial concept and architectural drawings, through council approvals, construction, and finishing, right up to your occupation certificate. You receive a ready-to-move-in home with a single point of contact throughout.',
-    icon: 'key',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'
+    icon: 'key'
   }
 ];
 
@@ -172,8 +167,8 @@ const PROJECTS = [
       'Residential estate project',
       'Further details available on request'
     ],
-    images: 3,
-    imagePaths: ['Projects/BlueHills.jpeg', 'Projects/BlueHills_2.jpeg', 'Projects/BlueHills_3.jpeg']
+    images: 4,
+    imagePaths: ['Projects/BlueHills.jpeg', 'Projects/BlueHills_2.jpeg', 'Projects/BlueHills_3.jpeg', 'Projects/BlueHills_4.jpg']
   },
   {
     id: 'waterfall-estate',
@@ -188,7 +183,8 @@ const PROJECTS = [
       'Premium Waterfall Estate location',
       'Constructed to estate standards'
     ],
-    images: 0
+    images: 4,
+    imagePaths: ['Projects/Waterfall1.jpg', 'Projects/Waterfall2.jpg', 'Projects/Waterfall3.jpg']
   },
   {
     id: 'fourways-gardens',
@@ -204,7 +200,8 @@ const PROJECTS = [
       'Architect: Down To Earth Architects & Interiors',
       'Fourways Gardens location'
     ],
-    images: 3
+    images: 2,
+    imagePaths: ['Projects/fourwaysgardens1.jpg', 'Projects/fourwaysgardens2.jpg']
   },
   {
     id: 'benmore-gardens',
@@ -249,7 +246,12 @@ const PROJECTS = [
       'Flatlet joined to main house',
       'Seamless integration with existing structure'
     ],
-    images: 3
+    images: 3,
+    beforeAfterPairs: [
+      { before: 'Projects/kyalami1-before.jpg', after: 'Projects/kyalami1-after.JPG' },
+      { before: 'Projects/kyalami2-before.JPG', after: 'Projects/kyalami2-after.JPG' },
+      { before: 'Projects/kyalami3-before.jpg', after: 'Projects/kyalami3-after.JPG' }
+    ]
   }
 ];
 

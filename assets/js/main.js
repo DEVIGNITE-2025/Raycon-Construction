@@ -270,10 +270,8 @@
       grid.style.transform = 'translateY(12px)';
 
       setTimeout(() => {
-        grid.innerHTML = filtered.map(project => {
-          const hasImage = getProjectImagePaths(project).length > 0;
-          return `
-          <article class="card${hasImage ? '' : ' card--archive'}">
+        grid.innerHTML = filtered.map(project => `
+          <article class="card">
             ${getProjectCardImage(project)}
             <div class="card__body">
               <div class="card__meta">
@@ -285,17 +283,81 @@
               <a href="project.html?id=${project.id}" class="card__link">View project</a>
             </div>
           </article>
-        `;}).join('');
+        `).join('');
 
         // Trigger reflow
         void grid.offsetHeight;
         grid.style.opacity = '1';
         grid.style.transform = 'translateY(0)';
         grid.style.transition = 'opacity .35s ease, transform .35s ease';
+        initComparisonSliders();
       }, 200);
     }
 
     renderProjects('All');
+  }
+
+  /* ==========================================================
+     COMPARISON SLIDER INTERACTION
+     ========================================================== */
+  function initComparisonSliders() {
+    document.querySelectorAll('.comparison-slider').forEach(slider => {
+      if (slider.dataset.bound === 'true') return;
+      slider.dataset.bound = 'true';
+
+      const handle = slider.querySelector('.comparison-slider__handle');
+      const afterWrapper = slider.querySelector('.comparison-slider__after-wrapper');
+      const beforeLabel = slider.querySelector('.comparison-slider__label.before');
+      const afterLabel = slider.querySelector('.comparison-slider__label.after');
+      if (!handle || !afterWrapper) return;
+
+      let isActive = false;
+
+      function applySliderPosition(percentage) {
+        const clamped = Math.max(0, Math.min(percentage, 100));
+        afterWrapper.style.width = clamped + '%';
+        handle.style.left = clamped + '%';
+
+        // Show both tags when both images are visible.
+        // When one image fills the frame, show only that image's tag.
+        if (beforeLabel && afterLabel) {
+          beforeLabel.classList.toggle('is-hidden', clamped <= 2);
+          afterLabel.classList.toggle('is-hidden', clamped >= 98);
+        }
+      }
+
+      function updateSlider(e) {
+        if (!isActive) return;
+        const rect = slider.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        
+        // Handle touch events
+        if (e.touches) x = e.touches[0].clientX - rect.left;
+
+        x = Math.max(0, Math.min(x, rect.width));
+        const percentage = (x / rect.width) * 100;
+
+        applySliderPosition(percentage);
+      }
+
+      handle.addEventListener('mousedown', () => { isActive = true; });
+      handle.addEventListener('touchstart', () => { isActive = true; });
+      document.addEventListener('mouseup', () => { isActive = false; });
+      document.addEventListener('touchend', () => { isActive = false; });
+      document.addEventListener('mousemove', updateSlider);
+      document.addEventListener('touchmove', updateSlider);
+
+      // Allow click anywhere on slider to update position
+      slider.addEventListener('click', (e) => {
+        const rect = slider.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percentage = (x / rect.width) * 100;
+        applySliderPosition(percentage);
+      });
+
+      // Initialize at 50%
+      applySliderPosition(50);
+    });
   }
 
   /* ==========================================================
@@ -362,7 +424,7 @@
       </ul>
 
       <div style="margin-top:var(--sp-8)">
-        <a href="projects.html" class="btn btn--secondary"><- Back to Projects</a>
+        <a href="projects.html" class="btn btn--secondary">&larr; Back to Projects</a>
         <a href="contact.html" class="btn btn--primary" style="margin-left:var(--sp-3)">Discuss Your Project</a>
       </div>
     `;
@@ -492,6 +554,7 @@
 
     // Re-observe new elements
     initScrollAnimations();
+    initComparisonSliders();
   };
 
   // Render featured projects (used on index.html)
@@ -501,10 +564,8 @@
     const featured = PROJECTS.filter(p => p.featured);
     const items = (featured.length ? featured : PROJECTS).slice(0, limit || PROJECTS.length);
 
-    container.innerHTML = items.map(p => {
-      const hasImage = getProjectImagePaths(p).length > 0;
-      return `
-      <article class="card animate-on-scroll${hasImage ? '' : ' card--archive'}">
+    container.innerHTML = items.map(p => `
+      <article class="card animate-on-scroll">
         ${getProjectCardImage(p)}
         <div class="card__body">
           <div class="card__meta">
@@ -516,9 +577,10 @@
           <a href="project.html?id=${p.id}" class="card__link">View project</a>
         </div>
       </article>
-    `;}).join('');
+    `).join('');
 
     initScrollAnimations();
+    initComparisonSliders();
   };
 
   // Render testimonials
@@ -543,43 +605,80 @@
   };
 
   function getProjectCardImage(project) {
+    // Check for before/after pairs first (alterations/additions projects)
+    if (Array.isArray(project.beforeAfterPairs) && project.beforeAfterPairs.length) {
+      const pair = project.beforeAfterPairs[0];
+      const sliderId = `slider-${project.id}-${Math.random().toString(36).substr(2, 9)}`;
+      return `
+        <div class="card__img comparison-slider" id="${sliderId}">
+          <img class="comparison-slider__before" src="${pair.after}" alt="${project.title} - After" loading="lazy">
+          <div class="comparison-slider__after-wrapper">
+            <img class="comparison-slider__after" src="${pair.before}" alt="${project.title} - Before" loading="lazy">
+          </div>
+          <div class="comparison-slider__handle" aria-label="Drag to compare before and after"></div>
+          <span class="comparison-slider__label before">Before</span>
+          <span class="comparison-slider__label after">After</span>
+        </div>
+      `;
+    }
+
     const imagePath = getProjectImagePaths(project)[0];
 
     if (!imagePath) {
-      return getProjectArchiveVisual(project);
+      const initials = project.title
+        .split(/[\s\-—]+/)
+        .filter(w => w.length > 2)
+        .slice(0, 2)
+        .map(w => w[0].toUpperCase())
+        .join('');
+      return `
+        <div class="card__img img-placeholder" aria-hidden="true">
+          <div class="img-placeholder__initials">${initials}</div>
+          <span class="img-placeholder__badge">From the archive</span>
+          <div class="img-placeholder__year">${project.year}</div>
+          <div class="img-placeholder__scope">${project.scope}</div>
+        </div>
+      `;
     }
 
     return `<img class="card__img" src="${imagePath}" alt="${project.title}">`;
   }
 
-  function getProjectArchiveVisual(project) {
-    const initials = (project.title || '')
-      .replace(/[^A-Za-z\s]/g, '')
-      .split(/\s+/)
-      .filter(Boolean)
-      .slice(0, 2)
-      .map(w => w[0].toUpperCase())
-      .join('') || 'R';
-    const year = project.year || 'Archive';
-    const detail = (project.scope || project.overview || '').split('.')[0];
-    return `
-      <div class="card__archive" aria-hidden="true">
-        <div class="card__archive-grid"></div>
-        <div class="card__archive-tag">From the Archive</div>
-        <div class="card__archive-mark">${initials}</div>
-        <div class="card__archive-meta">
-          <span class="card__archive-year">${year}</span>
-          <span class="card__archive-detail">${detail}</span>
-        </div>
-      </div>
-    `;
-  }
-
   function getProjectGalleryMarkup(project) {
+    // Check for before/after pairs first
+    if (Array.isArray(project.beforeAfterPairs) && project.beforeAfterPairs.length) {
+      return project.beforeAfterPairs.map((pair, index) => `
+        <div class="before-after-pair">
+          <div class="before-after-item">
+            <span class="before-after-label before">Before</span>
+            <img
+              class="project-detail__gallery-img"
+              src="${pair.before}"
+              alt="${project.title} - Before ${index + 1}"
+              loading="lazy"
+            >
+          </div>
+          <div class="before-after-item">
+            <span class="before-after-label after">After</span>
+            <img
+              class="project-detail__gallery-img"
+              src="${pair.after}"
+              alt="${project.title} - After ${index + 1}"
+              loading="lazy"
+            >
+          </div>
+        </div>
+      `).join('');
+    }
+
     const imagePaths = getProjectImagePaths(project);
 
     if (!imagePaths.length) {
-      return `<div class="project-detail__archive">${getProjectArchiveVisual(project)}</div>`;
+      return Array.from({ length: project.images || 1 }, (_, i) => `
+        <div class="project-detail__gallery-img img-placeholder" role="img" aria-label="${project.title}  -  Image ${i + 1}">
+          Image ${i + 1} Placeholder
+        </div>
+      `).join('');
     }
 
     return imagePaths.map((imagePath, index) => `
@@ -625,12 +724,9 @@
           <p class="service-detail__text">${s.longDesc}</p>
           <a href="contact.html" class="btn btn--primary btn--sm" style="margin-top:var(--sp-5)">Enquire About This Service</a>
         </div>
-        <figure class="service-detail__img" aria-label="${s.title}">
-          ${s.image
-            ? `<img src="${s.image}" alt="${s.title}" loading="lazy" onerror="this.parentElement.classList.add('service-detail__img--fallback'); this.remove();">`
-            : ''}
-          <span class="service-detail__img-fallback">${s.title}</span>
-        </figure>
+        <div class="service-detail__img" role="img" aria-label="${s.title}">
+          ${s.title}  -  Photo
+        </div>
       </div>
     `).join('');
 
