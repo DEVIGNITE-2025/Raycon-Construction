@@ -194,6 +194,7 @@ p + p { margin-top: var(--sp-4); }
 
 /* Home page card grids: keep 3 cards first row and center incomplete second rows (e.g. 5 or 4 cards). */
 #services-preview,
+#services-cards,
 #featured-projects {
   display: flex;
   flex-wrap: wrap;
@@ -202,23 +203,29 @@ p + p { margin-top: var(--sp-4); }
 }
 
 #services-preview > *,
+#services-cards > *,
 #featured-projects > * {
   flex: 0 1 calc((100% - (var(--sp-6) * 2)) / 3);
+  min-width: min(280px, 100%);
   max-width: calc((100% - (var(--sp-6) * 2)) / 3);
 }
 
 @media (max-width: 980px) {
   #services-preview > *,
+  #services-cards > *,
   #featured-projects > * {
     flex-basis: calc((100% - var(--sp-6)) / 2);
+    min-width: min(260px, 100%);
     max-width: calc((100% - var(--sp-6)) / 2);
   }
 }
 
 @media (max-width: 640px) {
   #services-preview > *,
+  #services-cards > *,
   #featured-projects > * {
     flex-basis: 100%;
+    min-width: 0;
     max-width: 100%;
   }
 }
