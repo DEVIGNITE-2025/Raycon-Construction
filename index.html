@@ -469,8 +469,8 @@
         const templateParams = {
           name:        homeForm.querySelector('[name="name"]').value.trim(),
           email:       homeForm.querySelector('[name="email"]').value.trim(),
-          phone:       'Not provided',
-          projectType: 'Not specified',
+          phone:       homeForm.querySelector('[name="phone"]').value.trim() || 'Not provided',
+          projectType: homeForm.querySelector('[name="projectType"]').value || 'Not specified',
           suburb:      'Not provided',
           message:     homeForm.querySelector('[name="message"]').value.trim(),
           submittedAt: new Date().toLocaleString('en-ZA', { timeZone: 'Africa/Johannesburg' })
