@@ -271,7 +271,7 @@
 
       setTimeout(() => {
         grid.innerHTML = filtered.map(project => `
-          <article class="card">
+          <article class="card project-card">
             ${getProjectCardImage(project)}
             <div class="card__body">
               <div class="card__meta">
@@ -280,7 +280,10 @@
               </div>
               <h3 class="card__title" style="margin-top:var(--sp-3)">${project.title}</h3>
               <p class="card__text">${project.overview.substring(0, 140)}...</p>
-              <a href="project.html?id=${project.id}" class="card__link">View project</a>
+              <div class="project-card__footer">
+                <span>${project.year}</span>
+                <a href="project.html?id=${project.id}" class="card__link">View project</a>
+              </div>
             </div>
           </article>
         `).join('');
@@ -392,42 +395,76 @@
     const heroTitle = $('#project-hero-title');
     const heroLocation = $('#project-hero-location');
     if (heroTitle) heroTitle.textContent = project.title;
-    if (heroLocation) heroLocation.textContent = `${project.location} - ${project.year}`;
+    if (heroLocation) heroLocation.textContent = `${project.location} - ${project.year} - ${project.category}`;
+
+    const hero = $('.hero--page');
+    const leadImage = getProjectLeadImage(project);
+    if (hero) {
+      hero.classList.add('project-hero--with-image');
+      if (leadImage) hero.style.setProperty('--project-hero-image', `url("../../${leadImage}")`);
+    }
 
     // Render detail
     container.innerHTML = `
-      <div class="project-detail__meta">
-        <div class="project-detail__meta-item">
-          <strong>Location</strong>${project.location}
+      <section class="project-case-study">
+        <div class="project-case-study__lead">
+          <div class="project-case-study__media">
+            ${getProjectLeadMedia(project)}
+          </div>
+          <aside class="project-case-study__facts" aria-label="Project facts">
+            <div class="project-case-study__fact">
+              <span>Location</span>
+              <strong>${project.location}</strong>
+            </div>
+            <div class="project-case-study__fact">
+              <span>Timeline</span>
+              <strong>${project.year}</strong>
+            </div>
+            <div class="project-case-study__fact">
+              <span>Project Type</span>
+              <strong>${project.category}</strong>
+            </div>
+            <div class="project-case-study__fact project-case-study__fact--scope">
+              <span>Scope</span>
+              <strong>${project.scope}</strong>
+            </div>
+          </aside>
         </div>
-        <div class="project-detail__meta-item">
-          <strong>Year</strong>${project.year}
+
+        <div class="project-case-study__body">
+          <article class="project-case-study__story">
+            <span class="project-kicker">Overview</span>
+            <h2>${project.title}</h2>
+            <p>${project.overview}</p>
+          </article>
+
+          <aside class="project-case-study__highlights">
+            <span class="project-kicker">Highlights</span>
+            <ul class="project-detail__highlights">
+              ${project.highlights.map(h => `<li>${h}</li>`).join('')}
+            </ul>
+          </aside>
         </div>
-        <div class="project-detail__meta-item">
-          <strong>Category</strong>${project.category}
+
+        <section class="project-gallery-block" aria-labelledby="project-gallery-heading">
+          <div class="project-section-heading">
+            <span class="project-kicker">Gallery</span>
+            <h3 id="project-gallery-heading">A closer look at the build</h3>
+          </div>
+
+          <div class="project-detail__gallery">
+            ${getProjectGalleryMarkup(project)}
+          </div>
+        </section>
+
+        <div class="project-actions">
+          <a href="projects.html" class="btn btn--secondary">&larr; Back to Projects</a>
+          <a href="contact.html" class="btn btn--primary">Discuss Your Project</a>
         </div>
-      </div>
-
-      <h3>Overview</h3>
-      <p>${project.overview}</p>
-
-      <div class="project-detail__gallery">
-        ${getProjectGalleryMarkup(project)}
-      </div>
-
-      <h3>Scope of Work</h3>
-      <p>${project.scope}</p>
-
-      <h3 style="margin-top:var(--sp-6)">Project Highlights</h3>
-      <ul class="project-detail__highlights">
-        ${project.highlights.map(h => `<li>${h}</li>`).join('')}
-      </ul>
-
-      <div style="margin-top:var(--sp-8)">
-        <a href="projects.html" class="btn btn--secondary">&larr; Back to Projects</a>
-        <a href="contact.html" class="btn btn--primary" style="margin-left:var(--sp-3)">Discuss Your Project</a>
-      </div>
+      </section>
     `;
+
+    initComparisonSliders();
   }
 
   /* ==========================================================
@@ -576,7 +613,7 @@
     const items = (featured.length ? featured : PROJECTS).slice(0, limit || PROJECTS.length);
 
     container.innerHTML = items.map(p => `
-      <article class="card animate-on-scroll">
+      <article class="card project-card animate-on-scroll">
         ${getProjectCardImage(p)}
         <div class="card__body">
           <div class="card__meta">
@@ -585,7 +622,10 @@
           </div>
           <h3 class="card__title" style="margin-top:var(--sp-3)">${p.title}</h3>
           <p class="card__text">${p.overview.substring(0, 120)}...</p>
-          <a href="project.html?id=${p.id}" class="card__link">View project</a>
+          <div class="project-card__footer">
+            <span>${p.year}</span>
+            <a href="project.html?id=${p.id}" class="card__link">View project</a>
+          </div>
         </div>
       </article>
     `).join('');
@@ -704,6 +744,45 @@
 
   function getProjectImagePaths(project) {
     return Array.isArray(project.imagePaths) ? project.imagePaths : [];
+  }
+
+  function getProjectLeadImage(project) {
+    if (Array.isArray(project.beforeAfterPairs) && project.beforeAfterPairs.length) {
+      return project.beforeAfterPairs[0].after;
+    }
+    return getProjectImagePaths(project)[0] || '';
+  }
+
+  function getProjectLeadMedia(project) {
+    if (Array.isArray(project.beforeAfterPairs) && project.beforeAfterPairs.length) {
+      const pair = project.beforeAfterPairs[0];
+      const sliderId = `lead-slider-${project.id}`;
+      return `
+        <div class="project-case-study__comparison comparison-slider" id="${sliderId}">
+          <img class="comparison-slider__before" src="${pair.after}" alt="${project.title} - After" loading="lazy">
+          <div class="comparison-slider__after-wrapper">
+            <img class="comparison-slider__after" src="${pair.before}" alt="${project.title} - Before" loading="lazy">
+          </div>
+          <div class="comparison-slider__handle" aria-label="Drag to compare before and after"></div>
+          <span class="comparison-slider__label before">Before</span>
+          <span class="comparison-slider__label after">After</span>
+        </div>
+      `;
+    }
+
+    const leadImage = getProjectLeadImage(project);
+    if (!leadImage) {
+      return `
+        <div class="project-case-study__placeholder img-placeholder" role="img" aria-label="${project.title}">
+          <div class="img-placeholder__initials">${project.title.slice(0, 2).toUpperCase()}</div>
+          <span class="img-placeholder__badge">From the archive</span>
+          <div class="img-placeholder__year">${project.year}</div>
+          <div class="img-placeholder__scope">${project.scope}</div>
+        </div>
+      `;
+    }
+
+    return `<img class="project-case-study__lead-img" src="${leadImage}" alt="${project.title}" loading="eager">`;
   }
 
   // Render team cards

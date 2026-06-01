@@ -74,8 +74,8 @@ const PROJECTS = [
       'Started July 2022 - completed Phase 1 in 2025',
       'Up to 6 houses under construction simultaneously'
     ],
-    images: 1,
-    imagePaths: ['Projects/Wahlberg.jpg']
+    images: 2,
+    imagePaths: ['Projects/Wahlberg.jpg', 'Projects/Atholl.jpg']
   },
   {
     id: 'cowley-row',
@@ -92,7 +92,8 @@ const PROJECTS = [
       'Completed April 2022',
       'Delivered on schedule'
     ],
-    images: 3
+    images: 1,
+    imagePaths: ['Projects/CowleyRow.jpg']
   },
   {
     id: 'porchester-lane',
@@ -108,8 +109,8 @@ const PROJECTS = [
       'Completed November 2022',
       'Quality construction throughout'
     ],
-    images: 1,
-    imagePaths: ['Projects/Porchester.jpg']
+    images: 3,
+    imagePaths: ['Projects/Porchester2.jpg', 'Projects/Porchester.jpg', 'Projects/Porchester1.jpg']
   },
   {
     id: '156-on-mount',
@@ -125,7 +126,8 @@ const PROJECTS = [
       'Completed August 2023',
       'Premium finishes'
     ],
-    images: 3
+    images: 1,
+    imagePaths: ['Projects/156Mount.jpg']
   },
   {
     id: 'thornbush-estate',
@@ -188,8 +190,8 @@ const PROJECTS = [
       'Premium Waterfall Estate location',
       'Constructed to estate standards'
     ],
-    images: 4,
-    imagePaths: ['Projects/Waterfall1.jpg', 'Projects/Waterfall2.jpg', 'Projects/Waterfall3.jpg']
+    images: 3,
+    imagePaths: ['Projects/waterfall1.JPG', 'Projects/waterfall2.JPG', 'Projects/waterfall3.JPG']
   },
   {
     id: 'fourways-gardens',
