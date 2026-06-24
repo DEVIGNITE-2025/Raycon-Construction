@@ -1,5 +1,5 @@
 /* ============================================================
-   RAYCON DEVELOPMENTS — Site Data
+   RAYCON DEVELOPMENTS - Site Data
    Edit services and projects here.
    ============================================================ */
 
@@ -12,7 +12,7 @@ const SERVICES = [
     id: 'upmarket-homes',
     title: 'Upmarket Homes',
     shortDesc: 'Bespoke luxury residences crafted to reflect your lifestyle, built to the highest standards in Johannesburg\'s most sought-after suburbs.',
-    longDesc: 'From contemporary architectural statements to timeless classical designs, our upmarket homes are the result of decades of refined craftsmanship. Every detail — from foundation to finishes — is executed with meticulous care. We collaborate closely with leading architects to bring your vision to life in suburbs like Dainfern, Bryanston, Waterfall Estate, and Atholl.',
+    longDesc: 'From contemporary architectural statements to timeless classical designs, our upmarket homes are the result of decades of refined craftsmanship. Every detail - from foundation to finishes - is executed with meticulous care. We collaborate closely with leading architects to bring your vision to life in suburbs like Dainfern, Bryanston, Waterfall Estate, and Atholl.',
     icon: 'home-luxury',
     imagePath: 'assets/img/service-upmarket-homes.jpg'
   },
@@ -22,7 +22,7 @@ const SERVICES = [
     shortDesc: 'Transform your existing property with expertly planned renovations, extensions, and modernisation projects.',
     longDesc: 'Whether you need an additional bedroom, a reimagined kitchen, or a complete ground-floor extension, our team manages every detail from structural assessment right through to finishing touches. We work sensitively within existing structures, minimising disruption while maximising the potential of your property. Raycon has been specialising in alterations and additions since 1982.',
     icon: 'tools',
-    imagePath: 'assets/img/service-alterations.jpg'
+    imagePath: 'assets/img/renovation.jpeg'
   },
   {
     id: 'plans-submissions',
@@ -30,7 +30,8 @@ const SERVICES = [
     shortDesc: 'Professional architectural plans, council submissions, and all regulatory documentation handled end-to-end.',
     longDesc: 'Navigating municipal approvals and building regulations can be complex. We are here to advise and assist with all aspects of your build, from planning to occupation certificate.',
     icon: 'blueprint',
-    imagePath: 'assets/img/service-plans.jpg'
+    imagePath: 'Projects/cambridge-road-site-plan.png',
+    imageFit: 'contain'
   },
   {
     id: 'secure-estates',
@@ -38,12 +39,12 @@ const SERVICES = [
     shortDesc: 'Complete residential estate development, from site planning to final handover, in secure gated communities.',
     longDesc: 'We have a proven track record delivering exceptional estate developments. From Thornbush Estate (22 units) and Bramble Bush Estate (40 units) to Cowley Row (6 units) and The Wahlberg (11 homes), we handle every aspect including site infrastructure, individual home construction, landscaping, and common area development.',
     icon: 'shield',
-    imagePath: 'assets/img/service-estate.jpg'
+    imagePath: 'Projects/THORN-BUSH-ESTATE.jpg'
   },
   {
     id: 'turnkey-projects',
     title: 'Turn Key Projects',
-    shortDesc: 'A complete service from the drawing of your dream home to occupation certificate — we manage every step.',
+    shortDesc: 'A complete service from the drawing of your dream home to occupation certificate - we manage every step.',
     longDesc: 'Our turnkey service is the ultimate hands-free building experience. We manage the entire lifecycle of your project: from initial concept and architectural drawings, through council approvals, construction, and finishing, right up to your occupation certificate. You receive a ready-to-move-in home with a single point of contact throughout.',
     icon: 'key',
     imagePath: 'assets/img/service-turnkey.jpg'
@@ -60,15 +61,15 @@ const SERVICES = [
 const PROJECTS = [
   {
     id: 'the-wahlberg',
-    title: 'The Wahlberg — Atholl',
+    title: 'The Wahlberg - Atholl',
     category: 'Estate Development',
     location: 'Atholl, Johannesburg',
     year: '2022 - 2025',
     featured: true,
-    overview: '11 exclusive, freestanding homes in the prestigious suburb of Atholl. This showcases Raycon\'s capability to build high-end residential estates. Designed by Darryl Croome Architects.',
-    scope: '11 homes. Started July 2022 - completed Phase 1 in 2025. Up to 6 houses under construction simultaneously.',
+    overview: '11 of the freestanding homes in this upmarket secure development of 22 houses in Atholl were built by Raycon. This showcases Raycon\'s capability to build high-end residential estates. Designed by Darryl Croome Architects.',
+    scope: '11 homes within a secure development of 22 houses. Started July 2022 - completed Phase 1 in 2025. Up to 6 houses under construction simultaneously.',
     highlights: [
-      '11 exclusive freestanding homes',
+      '11 of 22 freestanding homes built by Raycon',
       'Designed by Darryl Croome Architects',
       'Premium Atholl location',
       'Started July 2022 - completed Phase 1 in 2025',
@@ -97,30 +98,30 @@ const PROJECTS = [
   },
   {
     id: 'porchester-lane',
-    title: 'Porchester Place',
+    title: 'Porchester Lane',
     category: 'New Build',
-    location: 'Johannesburg',
+    location: 'Bryanston',
     year: '2022',
     featured: true,
-    overview: 'A development of 6 residential units completed in November 2022. This project highlights Raycon\'s ability to deliver multi-unit residential developments efficiently and to a high standard.',
-    scope: 'Full construction of 6 residential units from foundation to completion.',
+    overview: 'A development of 5 residential units completed in November 2022. This project highlights Raycon\'s ability to deliver multi-unit residential developments efficiently and to a high standard.',
+    scope: 'Full construction of 5 residential units from foundation to completion.',
     highlights: [
-      '6 residential units',
+      '5 residential units',
       'Completed November 2022',
       'Quality construction throughout'
     ],
-    images: 3,
-    imagePaths: ['Projects/Porchester2.jpg', 'Projects/Porchester.jpg', 'Projects/Porchester1.jpg']
+    images: 2,
+    imagePaths: ['Projects/Porchester.jpg', 'Projects/Porchester1.jpg']
   },
   {
     id: '156-on-mount',
     title: '156 On Mount',
     category: 'New Build',
-    location: 'Johannesburg',
+    location: 'Bryanston',
     year: '2023',
     featured: true,
-    overview: 'A development of 4 residential units completed in August 2023. This project showcases Raycon\'s consistent delivery of quality residential construction.',
-    scope: 'Complete construction of 4 residential units including all finishes.',
+    overview: '4 units of 8 were built by Raycon Developments in this secure estate.',
+    scope: 'Construction of 4 units within an 8-unit secure estate, including all finishes.',
     highlights: [
       '4 residential units',
       'Completed August 2023',
@@ -133,7 +134,7 @@ const PROJECTS = [
     id: 'thornbush-estate',
     title: 'Thornbush Estate',
     category: 'Estate Development',
-    location: 'Johannesburg',
+    location: 'Beverley',
     year: '2009',
     overview: 'Raycon completed the construction of 22 residential units in this estate development. A landmark project that demonstrated our capacity to deliver multi-unit residential developments at consistently high standards.',
     scope: 'Complete construction of 22 residential units including infrastructure and estate facilities.',
@@ -143,13 +144,14 @@ const PROJECTS = [
       'Completed 2009',
       'Secure residential estate'
     ],
-    images: 4
+    images: 1,
+    imagePaths: ['Projects/THORN-BUSH-ESTATE.jpg']
   },
   {
     id: 'bramble-bush-estate',
-    title: 'Bramble Bush Estate — Broadacres',
+    title: 'Bramble Bush Estate - Broadacres',
     category: 'Estate Development',
-    location: 'Broadacres, Johannesburg',
+    location: 'Broadacres',
     year: 'Completed',
     overview: 'Raycon built 40 units in this Broadacres development. One of our largest estate projects, demonstrating our capacity to manage and deliver substantial residential developments.',
     scope: 'Full construction of 40 residential units within the Bramble Bush Estate development.',
@@ -159,7 +161,8 @@ const PROJECTS = [
       'Architect: Down To Earth Architects & Interiors',
       'Large-scale estate development'
     ],
-    images: 4
+    images: 1,
+    imagePaths: ['Projects/BRAMBLE-BUSH.jpg']
   },
   {
     id: 'blue-hills-equestrian-estate',
@@ -191,7 +194,8 @@ const PROJECTS = [
       'Constructed to estate standards'
     ],
     images: 3,
-    imagePaths: ['Projects/waterfall1.JPG', 'Projects/waterfall2.JPG', 'Projects/waterfall3.JPG']
+    imagePaths: ['Projects/waterfall1.JPG', 'Projects/waterfall2.JPG', 'Projects/waterfall3.JPG'],
+    galleryHeading: null
   },
   {
     id: 'fourways-gardens',
@@ -214,7 +218,7 @@ const PROJECTS = [
     id: 'benmore-gardens',
     title: 'Benmore Gardens',
     category: 'New Build',
-    location: 'Benmore Gardens, Johannesburg',
+    location: 'Sandton',
     year: 'Completed',
     overview: 'Raycon constructed bespoke homes in Benmore Gardens, delivering individually designed residences to discerning homeowners in this established suburb.',
     scope: 'Construction of bespoke, individually designed homes.',
@@ -227,38 +231,98 @@ const PROJECTS = [
   },
   {
     id: 'saddle-brook',
-    title: 'Saddle Brook',
+    title: 'Saddlebrook Estate',
     category: 'New Build',
-    location: 'Saddle Brook, Johannesburg',
+    location: 'Midrand',
     year: 'Completed',
-    overview: 'Raycon completed 3 luxury homes in the exclusive Saddle Brook estate. Each home was individually crafted to the highest specifications.',
+    overview: 'Raycon completed 3 luxury homes in the exclusive Saddlebrook Estate. Each home was individually crafted to the highest specifications.',
     scope: 'Construction of 3 luxury residential homes.',
     highlights: [
       '3 luxury homes',
-      'Exclusive Saddle Brook location',
+      'Exclusive Saddlebrook Estate location',
       'Premium finishes throughout'
     ],
-    images: 3
+    images: 1,
+    imagePaths: ['Projects/SADDLEBROOK-ESTATE.jpg'],
+    galleryHeading: null
   },
   {
     id: 'kyalami-residence',
-    title: 'Kyalami Residence',
-    category: 'Alterations & Additions',
-    location: 'Kyalami, Johannesburg',
+    title: 'Linksfield Residence - Johannesburg',
+    category: 'Renovation/Revamp',
+    location: 'Linksfield, Johannesburg',
     year: 'Completed',
-    overview: 'A 60 m² addition to an existing home, creating a flatlet joined to the main house. This project showcases Raycon\'s ability to extend properties with seamless integration.',
-    scope: '60 m² addition to existing home — flatlet joined to house.',
+    overview: 'A complete interior renovation of an old unit in a secure sectional title development.',
+    scope: 'Renovate and modernise the entire unit without changing the uniform look on the outside.',
     highlights: [
-      '60 m² addition',
-      'Flatlet joined to main house',
-      'Seamless integration with existing structure'
+      'Complete interior renovation',
+      'Secure sectional title development',
+      'Modernised without changing the outside uniform look'
     ],
     images: 3,
+    galleryHeading: 'Updated entire Unit',
     beforeAfterPairs: [
       { before: 'Projects/kyalami1-before.jpg', after: 'Projects/kyalami1-after.JPG' },
       { before: 'Projects/kyalami2-before.JPG', after: 'Projects/kyalami2-after.JPG' },
       { before: 'Projects/kyalami3-before.jpg', after: 'Projects/kyalami3-after.JPG' }
     ]
+  },
+  {
+    id: 'inanda-stand-alone-house',
+    title: 'Stand Alone House - Inanda',
+    category: 'New Project',
+    location: 'Inanda',
+    year: 'New Project',
+    featured: true,
+    overview: 'A new stand-alone residential house in Inanda.',
+    scope: 'Stand-alone residential home construction.',
+    highlights: [
+      'Stand-alone house',
+      'Inanda location',
+      'New residential project'
+    ],
+    images: 0,
+    galleryHeading: null
+  },
+  {
+    id: 'melrose-apartment-renovation',
+    title: 'Melrose Apartment Renovation',
+    category: 'Renovation/Revamp',
+    location: 'Melrose',
+    year: 'New Project',
+    featured: true,
+    overview: 'A full interior renovation of an apartment in Melrose.',
+    scope: 'Full interior apartment renovation.',
+    highlights: [
+      'Full interior renovation',
+      'Apartment project',
+      'Melrose location'
+    ],
+    images: 0,
+    galleryHeading: null
+  },
+  {
+    id: 'cambridge-road-bryanston',
+    title: 'Cambridge Road Secure Estate',
+    category: 'Estate Development',
+    location: 'Cambridge Road, Bryanston',
+    year: 'To be launched soon',
+    featured: true,
+    overview: 'A new secure estate of 10 houses in Cambridge Road, Bryanston. To be launched soon.',
+    scope: 'Secure estate development of 10 houses, with site planning and launch documentation in progress.',
+    highlights: [
+      '10-house secure estate',
+      'Cambridge Road, Bryanston',
+      'To be launched soon'
+    ],
+    images: 1,
+    imagePaths: ['Projects/cambridge-road-site-plan.png'],
+    sitePlan: {
+      image: 'Projects/cambridge-road-site-plan.png',
+      pdf: 'Projects/01-A0_P_-_Site_Plan.pdf',
+      title: 'Cambridge Road Site Plan'
+    },
+    galleryHeading: 'Site Plan'
   }
 ];
 
@@ -272,11 +336,11 @@ const FAQS = [
   },
   {
     question: 'Do you handle the architectural plans and council approvals?',
-    answer: 'Yes. Our Plans & Submissions service covers the full process — from initial concept sketches and detailed architectural drawings to structural engineer coordination and municipal submission. We work with the relevant local authorities to secure all necessary approvals before construction begins.'
+    answer: 'Yes. Our Plans & Submissions service covers the full process - from initial concept sketches and detailed architectural drawings to structural engineer coordination and municipal submission. We work with the relevant local authorities to secure all necessary approvals before construction begins.'
   },
   {
     question: 'What areas do you operate in?',
-    answer: 'We primarily serve the northern suburbs of Johannesburg, including Dainfern, Dainfern Valley, Fourways Gardens, Broadacres, Waterfall Estate, Bryanston, Craighall, Blue Hills, and surrounding areas. If your project falls outside these areas, please contact us — we\'re happy to discuss your requirements.'
+    answer: 'We primarily serve the northern suburbs of Johannesburg, including Dainfern, Dainfern Valley, Fourways Gardens, Broadacres, Waterfall Estate, Bryanston, Craighall, Blue Hills, and surrounding areas. If your project falls outside these areas, please contact us - we\'re happy to discuss your requirements.'
   },
   {
     question: 'Can I live in my home during a renovation?',
@@ -284,7 +348,7 @@ const FAQS = [
   },
   {
     question: 'What is a turnkey project?',
-    answer: 'A turnkey project is our most comprehensive service. We manage every aspect of your build — from drawing your dream home, obtaining all approvals, managing the full construction process, right through to issuing your occupation certificate. You receive a complete, move-in-ready home with one dedicated point of contact throughout the journey.'
+    answer: 'A turnkey project is our most comprehensive service. We manage every aspect of your build - from drawing your dream home, obtaining all approvals, managing the full construction process, right through to issuing your occupation certificate. You receive a complete, move-in-ready home with one dedicated point of contact throughout the journey.'
   },
   {
     question: 'How many projects can you manage at once?',

@@ -1247,6 +1247,11 @@ p + p { margin-top: var(--sp-4); }
   max-width: 520px;
 }
 
+.project-section-heading--label-only {
+  grid-template-columns: 1fr;
+  margin-bottom: var(--sp-3);
+}
+
 .project-detail__meta {
   display: flex;
   flex-wrap: wrap;
@@ -1285,6 +1290,36 @@ p + p { margin-top: var(--sp-4); }
   color: var(--clr-mid-grey);
   grid-column: span 2;
   box-shadow: var(--shadow-sm);
+}
+
+.project-detail__gallery-img--contain,
+.project-case-study__lead-img--contain,
+.service-detail__img--contain {
+  object-fit: contain;
+  background: #fff;
+  padding: var(--sp-3);
+}
+
+.project-site-plan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-5);
+  padding: var(--sp-5);
+  border: 1px solid var(--clr-charcoal-10);
+  border-radius: var(--radius-md);
+  background: var(--clr-offwhite);
+}
+
+.project-site-plan h3 {
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  margin-bottom: var(--sp-2);
+}
+
+.project-site-plan p {
+  color: var(--clr-charcoal-70);
+  margin: 0;
+  max-width: 680px;
 }
 
 .project-detail__gallery-img:nth-child(1),
@@ -1432,6 +1467,11 @@ p + p { margin-top: var(--sp-4); }
 
   .project-actions .btn {
     width: 100%;
+  }
+
+  .project-site-plan {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
@@ -1880,6 +1920,7 @@ p + p { margin-top: var(--sp-4); }
   aspect-ratio: 4 / 3;
   background: var(--clr-light-grey);
   border-radius: var(--radius-lg);
+  object-fit: cover;
   display: flex;
   align-items: center;
   justify-content: center;

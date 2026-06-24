@@ -24,7 +24,7 @@
   });
 
   /* ==========================================================
-     NAVBAR  -  scroll background & active link
+     NAVBAR - scroll background & active link
      ========================================================== */
   function initNavbar() {
     const navbar = $('.navbar');
@@ -47,7 +47,7 @@
   }
 
   /* ==========================================================
-     MOBILE NAV  -  drawer with focus trap + escape
+     MOBILE NAV - drawer with focus trap + escape
      ========================================================== */
   function initMobileNav() {
     const toggle = $('.nav-toggle');
@@ -446,16 +446,8 @@
           </aside>
         </div>
 
-        <section class="project-gallery-block" aria-labelledby="project-gallery-heading">
-          <div class="project-section-heading">
-            <span class="project-kicker">Gallery</span>
-            <h3 id="project-gallery-heading">A closer look at the build</h3>
-          </div>
-
-          <div class="project-detail__gallery">
-            ${getProjectGalleryMarkup(project)}
-          </div>
-        </section>
+        ${getProjectSitePlanMarkup(project)}
+        ${getProjectGalleryBlock(project)}
 
         <div class="project-actions">
           <a href="projects.html" class="btn btn--secondary">&larr; Back to Projects</a>
@@ -468,7 +460,7 @@
   }
 
   /* ==========================================================
-     CONTACT FORM  -  validation + localStorage + toast
+     CONTACT FORM - validation + localStorage + toast
      ========================================================== */
   function initContactForm() {
     const form = $('#contact-form');
@@ -583,7 +575,7 @@
   }
 
   /* ==========================================================
-     RENDER HELPERS  -  used by pages that build from data.js
+     RENDER HELPERS - used by pages that build from data.js
      ========================================================== */
 
   // Render service cards (used on index.html)
@@ -726,7 +718,7 @@
 
     if (!imagePaths.length) {
       return Array.from({ length: project.images || 1 }, (_, i) => `
-        <div class="project-detail__gallery-img img-placeholder" role="img" aria-label="${project.title}  -  Image ${i + 1}">
+        <div class="project-detail__gallery-img img-placeholder" role="img" aria-label="${project.title} - Image ${i + 1}">
           Image ${i + 1} Placeholder
         </div>
       `).join('');
@@ -734,7 +726,7 @@
 
     return imagePaths.map((imagePath, index) => `
       <img
-        class="project-detail__gallery-img"
+        class="project-detail__gallery-img${isProjectPlanImage(project, imagePath) ? ' project-detail__gallery-img--contain' : ''}"
         src="${imagePath}"
         alt="${project.title} - Image ${index + 1}"
         loading="lazy"
@@ -742,8 +734,62 @@
     `).join('');
   }
 
+  function hasProjectGallery(project) {
+    return (
+      (Array.isArray(project.beforeAfterPairs) && project.beforeAfterPairs.length > 0) ||
+      getProjectImagePaths(project).length > 0
+    );
+  }
+
+  function getProjectGalleryBlock(project) {
+    if (!hasProjectGallery(project)) return '';
+
+    const heading = project.galleryHeading === undefined
+      ? 'A closer look at the build'
+      : project.galleryHeading;
+    const headingMarkup = heading
+      ? `<h3 id="project-gallery-heading">${heading}</h3>`
+      : '';
+
+    return `
+      <section class="project-gallery-block" ${heading ? 'aria-labelledby="project-gallery-heading"' : 'aria-label="Project gallery"'}>
+        <div class="project-section-heading${heading ? '' : ' project-section-heading--label-only'}">
+          <span class="project-kicker">Gallery</span>
+          ${headingMarkup}
+        </div>
+
+        <div class="project-detail__gallery">
+          ${getProjectGalleryMarkup(project)}
+        </div>
+      </section>
+    `;
+  }
+
+  function getProjectSitePlanMarkup(project) {
+    if (!project.sitePlan) return '';
+
+    const pdfLink = project.sitePlan.pdf
+      ? `<a class="btn btn--secondary btn--sm" href="${project.sitePlan.pdf}" target="_blank" rel="noopener noreferrer">View site plan PDF</a>`
+      : '';
+
+    return `
+      <section class="project-site-plan" aria-label="${project.sitePlan.title || 'Project site plan'}">
+        <div>
+          <span class="project-kicker">Site plan</span>
+          <h3>${project.sitePlan.title || 'Project Site Plan'}</h3>
+          <p>The site plan for the Cambridge Road, Bryanston secure estate is available to view on the project page.</p>
+        </div>
+        ${pdfLink}
+      </section>
+    `;
+  }
+
   function getProjectImagePaths(project) {
     return Array.isArray(project.imagePaths) ? project.imagePaths : [];
+  }
+
+  function isProjectPlanImage(project, imagePath) {
+    return Boolean(project.sitePlan && project.sitePlan.image === imagePath);
   }
 
   function getProjectLeadImage(project) {
@@ -782,7 +828,7 @@
       `;
     }
 
-    return `<img class="project-case-study__lead-img" src="${leadImage}" alt="${project.title}" loading="eager">`;
+    return `<img class="project-case-study__lead-img${isProjectPlanImage(project, leadImage) ? ' project-case-study__lead-img--contain' : ''}" src="${leadImage}" alt="${project.title}" loading="eager">`;
   }
 
   // Render team cards
@@ -814,7 +860,7 @@
           <p class="service-detail__text">${s.longDesc}</p>
           <a href="contact.html" class="btn btn--primary btn--sm" style="margin-top:var(--sp-5)">Enquire About This Service</a>
         </div>
-        ${s.imagePath ? `<img class="service-detail__img" src="${s.imagePath}" alt="${s.title}" loading="lazy">` : `<div class="service-detail__img" role="img" aria-label="${s.title}">${s.title} - Photo</div>`}
+        ${s.imagePath ? `<img class="service-detail__img${s.imageFit === 'contain' ? ' service-detail__img--contain' : ''}" src="${s.imagePath}" alt="${s.title}" loading="lazy">` : `<div class="service-detail__img" role="img" aria-label="${s.title}">${s.title} - Photo</div>`}
       </div>
     `).join('');
 
