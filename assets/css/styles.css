@@ -302,6 +302,18 @@ p + p { margin-top: var(--sp-4); }
   box-shadow: var(--shadow-md);
 }
 
+.btn--outline-light {
+  background: transparent;
+  color: var(--clr-offwhite);
+  border-color: rgba(247,245,242,.72);
+}
+.btn--outline-light:hover {
+  background: var(--clr-offwhite);
+  border-color: var(--clr-offwhite);
+  color: var(--clr-charcoal);
+  transform: translateY(-1px);
+}
+
 .btn--sm { padding: .55rem 1.2rem; font-size: .85rem; }
 .btn--lg { padding: 1rem 2.4rem; font-size: 1.05rem; }
 
@@ -867,6 +879,122 @@ p + p { margin-top: var(--sp-4); }
   font-size: .82rem;
   color: var(--clr-mid-grey);
   margin-top: var(--sp-1);
+}
+
+/* ---------- Cambridge Road Spotlight ---------- */
+.project-spotlight {
+  background: #050505;
+  color: var(--clr-offwhite);
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  overflow: hidden;
+}
+
+.project-spotlight__inner {
+  display: grid;
+  grid-template-columns: minmax(260px, .78fr) minmax(320px, 1fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+}
+
+.project-spotlight__media {
+  margin: 0;
+}
+
+.project-spotlight__media img {
+  width: min(100%, 520px);
+  margin-inline: auto;
+  box-shadow: 0 26px 70px rgba(0,0,0,.42);
+}
+
+.project-spotlight__content {
+  max-width: 620px;
+}
+
+.project-spotlight__label {
+  display: inline-block;
+  margin-bottom: var(--sp-4);
+  color: var(--clr-accent-light);
+  font-size: .78rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.project-spotlight h2 {
+  color: var(--clr-white);
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  max-width: 10ch;
+}
+
+.project-spotlight p {
+  max-width: 560px;
+  margin-top: var(--sp-5);
+  color: rgba(247,245,242,.72);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.project-spotlight__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-5);
+  margin: var(--sp-7) 0;
+  padding: var(--sp-5) 0;
+  border-block: 1px solid rgba(247,245,242,.16);
+}
+
+.project-spotlight__facts div {
+  min-width: 0;
+}
+
+.project-spotlight__facts dt {
+  color: rgba(247,245,242,.5);
+  font-size: .72rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.project-spotlight__facts dd {
+  margin-top: var(--sp-2);
+  color: var(--clr-white);
+  font-family: var(--ff-heading);
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  line-height: 1.25;
+}
+
+@media (max-width: 900px) {
+  .project-spotlight__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .project-spotlight__content {
+    order: -1;
+  }
+
+  .project-spotlight h2 {
+    max-width: 13ch;
+  }
+
+  .project-spotlight__media img {
+    width: min(100%, 440px);
+  }
+}
+
+@media (max-width: 640px) {
+  .project-spotlight {
+    padding: var(--sp-8) 0;
+  }
+
+  .project-spotlight__facts {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+
+  .project-spotlight .btn-group,
+  .project-spotlight .btn {
+    width: 100%;
+  }
 }
 
 /* ---------- Timeline ---------- */
