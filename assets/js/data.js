@@ -30,7 +30,7 @@ const SERVICES = [
     shortDesc: 'Professional architectural plans, council submissions, and all regulatory documentation handled end-to-end.',
     longDesc: 'Navigating municipal approvals and building regulations can be complex. We are here to advise and assist with all aspects of your build, from planning to occupation certificate.',
     icon: 'blueprint',
-    imagePath: 'Projects/cambridge-road-site-plan.png',
+    imagePath: 'Projects/cambridge-road-site-plan.webp',
     imageFit: 'contain'
   },
   {
@@ -100,6 +100,7 @@ const PROJECTS = [
     id: 'porchester-lane',
     title: 'Porchester Lane',
     category: 'New Build',
+    hideCategoryLabel: true,
     location: 'Bryanston',
     year: '2022',
     featured: true,
@@ -117,6 +118,7 @@ const PROJECTS = [
     id: '156-on-mount',
     title: '156 On Mount',
     category: 'New Build',
+    hideCategoryLabel: true,
     location: 'Bryanston',
     year: '2023',
     featured: true,
@@ -184,6 +186,7 @@ const PROJECTS = [
     id: 'waterfall-estate',
     title: 'Waterfall Estate',
     category: 'New Build',
+    hideCategoryLabel: true,
     location: 'Waterfall Estate, Johannesburg',
     year: 'Completed',
     overview: 'Raycon built 18 houses in the prestigious Waterfall Estate, one of Johannesburg\'s premier residential addresses. Each home was constructed to the estate\'s exacting standards.',
@@ -201,6 +204,7 @@ const PROJECTS = [
     id: 'fourways-gardens',
     title: 'Fourways Gardens',
     category: 'New Build',
+    hideCategoryLabel: true,
     location: 'Fourways Gardens, Johannesburg',
     year: 'Completed',
     overview: 'Raycon constructed 7 homes and completed various alterations in Fourways Gardens, a sought-after residential suburb in Johannesburg\'s northern corridor.',
@@ -215,24 +219,10 @@ const PROJECTS = [
     imagePaths: ['Projects/fourwaysgardens1.jpg', 'Projects/fourwaysgardens2.jpg']
   },
   {
-    id: 'benmore-gardens',
-    title: 'Benmore Gardens',
-    category: 'New Build',
-    location: 'Sandton',
-    year: 'Completed',
-    overview: 'Raycon constructed bespoke homes in Benmore Gardens, delivering individually designed residences to discerning homeowners in this established suburb.',
-    scope: 'Construction of bespoke, individually designed homes.',
-    highlights: [
-      'Bespoke home construction',
-      'Architect: Arthur Quinton Darryl Croome Architects',
-      'Benmore Gardens location'
-    ],
-    images: 3
-  },
-  {
     id: 'saddle-brook',
     title: 'Saddlebrook Estate',
     category: 'New Build',
+    hideCategoryLabel: true,
     location: 'Midrand',
     year: 'Completed',
     overview: 'Raycon completed 3 luxury homes in the exclusive Saddlebrook Estate. Each home was individually crafted to the highest specifications.',
@@ -281,7 +271,8 @@ const PROJECTS = [
       'Inanda location',
       'New residential project'
     ],
-    images: 0,
+    images: 1,
+    imagePaths: ['assets/img/111230.png'],
     galleryHeading: null
   },
   {
@@ -316,10 +307,9 @@ const PROJECTS = [
       'To be launched soon'
     ],
     images: 1,
-    imagePaths: ['Projects/cambridge-road-site-plan.png'],
+    imagePaths: ['Projects/cambridge-road-site-plan.webp'],
     sitePlan: {
-      image: 'Projects/cambridge-road-site-plan.png',
-      pdf: 'Projects/01-A0_P_-_Site_Plan.pdf',
+      image: 'Projects/cambridge-road-site-plan.webp',
       title: 'Cambridge Road Site Plan'
     },
     galleryHeading: 'Site Plan'

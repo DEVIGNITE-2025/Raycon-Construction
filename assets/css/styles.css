@@ -562,6 +562,9 @@ p + p { margin-top: var(--sp-4); }
   width: auto;
   display: block;
 }
+.logo__image--home {
+  height: 58px;
+}
 .logo__mark {
   width: 38px;
   height: 38px;
@@ -595,6 +598,10 @@ p + p { margin-top: var(--sp-4); }
 @media (max-width: 600px) {
   .logo__image {
     height: 40px;
+  }
+
+  .logo__image--home {
+    height: 48px;
   }
 }
 
@@ -780,15 +787,27 @@ p + p { margin-top: var(--sp-4); }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(17,19,24,.85), rgba(17,19,24,.6)),
+    linear-gradient(135deg, rgba(17,19,24,var(--hero-overlay-start, .85)), rgba(17,19,24,var(--hero-overlay-end, .6))),
     var(--hero-bg-image, url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><rect fill="%23222" width="600" height="600"/><g fill="%23333"><rect x="0" y="0" width="300" height="300"/><rect x="300" y="300" width="300" height="300"/></g></svg>'));
   background-size: cover;
   background-position: center;
 }
 
-.hero__bg--home { --hero-bg-image: url('../img/hero-home.png'); }
-.hero__bg--services { --hero-bg-image: url('../img/hero-services.png'); }
-.hero__bg--projects { --hero-bg-image: url('../img/hero-projects.png'); }
+.hero__bg--home {
+  --hero-bg-image: url('../img/hero-home.png');
+  --hero-overlay-start: .56;
+  --hero-overlay-end: .34;
+}
+.hero__bg--services {
+  --hero-bg-image: url('../img/hero-services.png');
+  --hero-overlay-start: .58;
+  --hero-overlay-end: .36;
+}
+.hero__bg--projects {
+  --hero-bg-image: url('../img/hero-projects.png');
+  --hero-overlay-start: .58;
+  --hero-overlay-end: .36;
+}
 .hero__bg--about { --hero-bg-image: url('../img/hero-about.png'); }
 .hero__bg--contact { --hero-bg-image: url('../img/hero-contact.png'); }
 .hero__content {
@@ -1918,6 +1937,9 @@ p + p { margin-top: var(--sp-4); }
   gap: var(--sp-7);
   margin-bottom: var(--sp-8);
 }
+.footer__logo-image {
+  height: 64px;
+}
 .footer__links { display: grid; gap: var(--sp-2); }
 .footer__links a { font-size: .9rem; }
 .footer__contact-item {
@@ -1947,6 +1969,12 @@ p + p { margin-top: var(--sp-4); }
   color: rgba(247,245,242,.5);
   line-height: 1.6;
   max-width: 360px;
+}
+
+@media (max-width: 600px) {
+  .footer__logo-image {
+    height: 58px;
+  }
 }
 
 /* ---------- Lazy images ---------- */

@@ -275,7 +275,7 @@
             ${getProjectCardImage(project)}
             <div class="card__body">
               <div class="card__meta">
-                <span class="chip chip--accent">${project.category}</span>
+                ${getProjectCategoryChip(project)}
                 <span class="chip">${project.location.split(',')[0]}</span>
               </div>
               <h3 class="card__title" style="margin-top:var(--sp-3)">${project.title}</h3>
@@ -395,7 +395,9 @@
     const heroTitle = $('#project-hero-title');
     const heroLocation = $('#project-hero-location');
     if (heroTitle) heroTitle.textContent = project.title;
-    if (heroLocation) heroLocation.textContent = `${project.location} - ${project.year} - ${project.category}`;
+    if (heroLocation) {
+      heroLocation.textContent = uniqueProjectMeta([project.location, project.year, getProjectCategoryLabel(project)]).join(' - ');
+    }
 
     const hero = $('.hero--page');
     const leadImage = getProjectLeadImage(project);
@@ -420,10 +422,7 @@
               <span>Timeline</span>
               <strong>${project.year}</strong>
             </div>
-            <div class="project-case-study__fact">
-              <span>Project Type</span>
-              <strong>${project.category}</strong>
-            </div>
+            ${getProjectCategoryFact(project)}
             <div class="project-case-study__fact project-case-study__fact--scope">
               <span>Scope</span>
               <strong>${project.scope}</strong>
@@ -446,7 +445,6 @@
           </aside>
         </div>
 
-        ${getProjectSitePlanMarkup(project)}
         ${getProjectGalleryBlock(project)}
 
         <div class="project-actions">
@@ -609,7 +607,7 @@
         ${getProjectCardImage(p)}
         <div class="card__body">
           <div class="card__meta">
-            <span class="chip chip--accent">${p.category}</span>
+            ${getProjectCategoryChip(p)}
             <span class="chip">${p.location.split(',')[0]}</span>
           </div>
           <h3 class="card__title" style="margin-top:var(--sp-3)">${p.title}</h3>
@@ -687,6 +685,29 @@
     return `<img class="card__img" src="${imagePath}" alt="${project.title}">`;
   }
 
+  function getProjectCategoryLabel(project) {
+    return project.hideCategoryLabel ? '' : project.category;
+  }
+
+  function getProjectCategoryChip(project) {
+    const label = getProjectCategoryLabel(project);
+    return label ? `<span class="chip chip--accent">${label}</span>` : '';
+  }
+
+  function getProjectCategoryFact(project) {
+    const label = getProjectCategoryLabel(project);
+    return label && label !== project.year
+      ? `<div class="project-case-study__fact">
+          <span>Project Type</span>
+          <strong>${label}</strong>
+        </div>`
+      : '';
+  }
+
+  function uniqueProjectMeta(items) {
+    return items.filter((item, index, list) => item && list.indexOf(item) === index);
+  }
+
   function getProjectGalleryMarkup(project) {
     // Check for before/after pairs first
     if (Array.isArray(project.beforeAfterPairs) && project.beforeAfterPairs.length) {
@@ -761,25 +782,6 @@
         <div class="project-detail__gallery">
           ${getProjectGalleryMarkup(project)}
         </div>
-      </section>
-    `;
-  }
-
-  function getProjectSitePlanMarkup(project) {
-    if (!project.sitePlan) return '';
-
-    const pdfLink = project.sitePlan.pdf
-      ? `<a class="btn btn--secondary btn--sm" href="${project.sitePlan.pdf}" target="_blank" rel="noopener noreferrer">View site plan PDF</a>`
-      : '';
-
-    return `
-      <section class="project-site-plan" aria-label="${project.sitePlan.title || 'Project site plan'}">
-        <div>
-          <span class="project-kicker">Site plan</span>
-          <h3>${project.sitePlan.title || 'Project Site Plan'}</h3>
-          <p>The site plan for the Cambridge Road, Bryanston secure estate is available to view on the project page.</p>
-        </div>
-        ${pdfLink}
       </section>
     `;
   }
